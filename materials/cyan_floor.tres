@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://qspubcspupbr"]
+
+[ext_resource type="Texture2D" uid="uid://c1g11dilahdhh" path="res://textures/cyan_block2.png" id="1_xcsv2"]
+
+[resource]
+albedo_texture = ExtResource("1_xcsv2")
+uv1_scale = Vector3(10, 10, 10)
+texture_filter = 2
