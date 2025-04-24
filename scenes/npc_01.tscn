@@ -1,9 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1usq1ie2yyt5"]
+[gd_scene load_steps=4 format=3 uid="uid://d1usq1ie2yyt5"]
 
 [ext_resource type="PackedScene" uid="uid://cr1gej21f1idw" path="res://models/dedin.glb" id="1_ufiyk"]
+[ext_resource type="Script" uid="uid://ck3wnhm1uslw7" path="res://scripts/npc_movement.gd" id="2_pdvhc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pdvhc"]
 
 [node name="npc_01" type="Node3D"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1.30785, 0)
 
-[node name="AuxScene" parent="." instance=ExtResource("1_ufiyk")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["player"]]
+script = ExtResource("2_pdvhc")
+speed = 1.0
+detection_radius = 15.0
+move_duration = 4.0
+
+[node name="Model" parent="CharacterBody3D" instance=ExtResource("1_ufiyk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0941501, -1.19209e-07, -0.039434)
+
+[node name="DetectionArea" type="Area3D" parent="CharacterBody3D"]
+
+[node name="Timer" type="Timer" parent="CharacterBody3D"]
+wait_time = 5.0
+autostart = true
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 0.4, -0.0731002, 0, -0.0572713)
+shape = SubResource("BoxShape3D_pdvhc")
+
+[connection signal="body_entered" from="CharacterBody3D/DetectionArea" to="CharacterBody3D" method="_on_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/DetectionArea" to="CharacterBody3D" method="_on_body_exited"]

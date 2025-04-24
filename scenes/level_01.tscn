@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cof0684thlpyg"]
+[gd_scene load_steps=12 format=3 uid="uid://cof0684thlpyg"]
 
 [ext_resource type="PackedScene" uid="uid://dwngmervcgx23" path="res://scenes/player.tscn" id="1_bpt1m"]
 [ext_resource type="Material" uid="uid://qspubcspupbr" path="res://materials/cyan_floor.tres" id="1_mofoo"]
 [ext_resource type="Material" uid="uid://dbo0bbv251g4c" path="res://materials/cyan_wall.tres" id="2_nr3cb"]
 [ext_resource type="PackedScene" uid="uid://d1usq1ie2yyt5" path="res://scenes/npc_01.tscn" id="4_j60wy"]
 [ext_resource type="PackedScene" uid="uid://1xb5rlxmoqi7" path="res://scenes/npc_02.tscn" id="5_qgxqk"]
+[ext_resource type="Script" uid="uid://dssdfyjkl3ltm" path="res://scripts/hud_script.gd" id="6_qgxqk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jt1vd"]
 
@@ -49,7 +50,20 @@ transform = Transform3D(2, 0, 0, 0, 4, 0, 0, 0, 2, 0, 2, 0)
 mesh = SubResource("BoxMesh_iafiv")
 surface_material_override/0 = ExtResource("2_nr3cb")
 
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.7468)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
+transform = Transform3D(40, 0, 0, 0, 4, 0, 0, 0, 2, 0, 2, 0)
+shape = SubResource("BoxShape3D_3imfn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4"]
+transform = Transform3D(40, 0, 0, 0, 4, 0, 0, 0, 2, 0, 2, 0)
+mesh = SubResource("BoxMesh_iafiv")
+surface_material_override/0 = ExtResource("2_nr3cb")
+
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05827, 0.631339, -0.388389)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
 transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 5, 0.4, 0)
@@ -63,8 +77,16 @@ surface_material_override/0 = ExtResource("2_nr3cb")
 [node name="npc_02" parent="." instance=ExtResource("5_qgxqk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.055136, 3.46109)
 
-[node name="npc_01" parent="." instance=ExtResource("4_j60wy")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1.32093, 4.51859)
-
 [node name="Player" parent="." instance=ExtResource("1_bpt1m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.385964, 12.0563)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.48357, 0.385964, 3.66281)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("6_qgxqk")
+
+[node name="npc_01" parent="." instance=ExtResource("4_j60wy")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 8.68149, 2.80239, 0)
