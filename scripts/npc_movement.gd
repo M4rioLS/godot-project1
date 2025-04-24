@@ -1,7 +1,8 @@
 extends CharacterBody3D
 
-@export var speed: float = 4.0
-@export var detection_radius: float = 10.0
+
+@export var speed: float = 1.5
+@export var detection_radius: float = 6.0
 @export var move_duration: float = 2.0
 # Add these gravity variables
 @export var gravity: float = 9.8  # Earth gravity = 9.8 m/s², adjust as needed
@@ -14,6 +15,8 @@ var players_in_range: Array = []
 var is_movement_stopped: bool = false
 var current_rotation: float = 0.0
 var target_rotation: float = 0.0
+var chasing_timer_max: float = 300.0
+var chasing_timer: float = chasing_timer_max
 var current_direction: Vector3 = Vector3.ZERO
 var is_chasing: bool = false
 var player: Node3D = null
@@ -44,7 +47,7 @@ func pick_random_direction() -> void:
 	current_direction = Vector3(randf_range(-1, 1), 0, randf_range(-1, 1)).normalized()
 
 func stop_randomly() -> void:
-	if randf() < 0.35:
+	if !is_chasing and randf() < 0.35:
 		if is_movement_stopped:
 			# Resume movement with original speed
 			speed = original_speed
@@ -97,8 +100,9 @@ func update_movement() -> void:
 	var horizontal_velocity = Vector3.ZERO
 	
 	if is_chasing and player != null:
-		print("CHASE")
+		#print("CHASE")
 		current_direction = (player.global_position - global_position).normalized()
+		update_rotation()
 	
 	if not is_movement_stopped:
 		horizontal_velocity = current_direction * speed
@@ -164,8 +168,14 @@ func update_chasing_state() -> void:
 		if raycast.is_colliding() and raycast.get_collider() == nearest_player:
 			player = nearest_player
 			is_chasing = true
+			chasing_timer = chasing_timer_max
 		else:
-			player = null
-			is_chasing = false
+			chasing_timer-=1
+			if (chasing_timer <= 0):
+				is_chasing = false
+				player = null
+				nearest_player = null
+		print(chasing_timer)
+			
 
 # Rest of your existing body entered/exited functions

@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 # Movement variables
 @export var SPEED = 5.0
-@export var JUMP_VELOCITY = 4.5
+@export var JUMP_VELOCITY = 5.0
 @export var SENSITIVITY = 0.003 # Mouse sensitivity
 
 # Get gravity from project settings
