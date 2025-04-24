@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://betl7osspfjrq"]
+
+[ext_resource type="PackedScene" uid="uid://bmofpxhls6vak" path="res://models/creatures/kasperl.glb" id="1_5rrj5"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.242267, 0.275234, 0.36333)
+
+[node name="Model" parent="." instance=ExtResource("1_5rrj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1081, 0.400736, -0.17966)

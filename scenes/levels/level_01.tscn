@@ -1,0 +1,184 @@
+[gd_scene load_steps=16 format=3 uid="uid://cof0684thlpyg"]
+
+[ext_resource type="PackedScene" uid="uid://1xb5rlxmoqi7" path="res://scenes/npc/npc_puppet.tscn" id="1_t0hvh"]
+[ext_resource type="Script" uid="uid://dssdfyjkl3ltm" path="res://scripts/misc/hud_script.gd" id="2_kfebt"]
+[ext_resource type="Material" uid="uid://qspubcspupbr" path="res://materials/cyan_floor.tres" id="3_r72dd"]
+[ext_resource type="Material" uid="uid://dbo0bbv251g4c" path="res://materials/cyan_wall.tres" id="4_ijn0p"]
+[ext_resource type="Script" uid="uid://d4kls08621kma" path="res://scripts/misc/music_player.gd" id="6_tyxjt"]
+[ext_resource type="AudioStream" uid="uid://yoewacl1umk5" path="res://sounds/music/suspensful.ogg" id="7_07lms"]
+[ext_resource type="PackedScene" uid="uid://dwngmervcgx23" path="res://scenes/player/player.tscn" id="8_gi8m4"]
+[ext_resource type="PackedScene" uid="uid://betl7osspfjrq" path="res://scenes/npc/npc_kasperl.tscn" id="9_kfebt"]
+[ext_resource type="PackedScene" uid="uid://d1usq1ie2yyt5" path="res://scenes/npc/npc_old_man.tscn" id="9_r72dd"]
+[ext_resource type="PackedScene" uid="uid://teuylk8o7voa" path="res://scenes/npc/npc_gremlin.tscn" id="10_r72dd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jt1vd"]
+
+[sub_resource type="Sky" id="Sky_bri2l"]
+sky_material = SubResource("ProceduralSkyMaterial_jt1vd")
+
+[sub_resource type="Environment" id="Environment_dvup1"]
+background_mode = 2
+sky = SubResource("Sky_bri2l")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3imfn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iafiv"]
+
+[node name="level_01" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.836628, 0.396249, -0.378206, -0.493147, 0.845413, -0.205144, 0.238452, 0.358141, 0.902705, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dvup1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_kfebt")
+
+[node name="Geometry" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D"]
+transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 40, 0, 0, 0)
+shape = SubResource("BoxShape3D_3imfn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D"]
+transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 40, 0, 0, 0)
+mesh = SubResource("BoxMesh_iafiv")
+surface_material_override/0 = ExtResource("3_r72dd")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.144757, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D2"]
+transform = Transform3D(2, 0, 0, 0, 3.5, 0, 0, 0, 2, 0, 2, 0)
+shape = SubResource("BoxShape3D_3imfn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D2"]
+transform = Transform3D(2, 0, 0, 0, 3.5, 0, 0, 0, 2, 0, 2, 0)
+mesh = SubResource("BoxMesh_iafiv")
+surface_material_override/0 = ExtResource("4_ijn0p")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 20.747)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D4"]
+transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
+shape = SubResource("BoxShape3D_3imfn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D4"]
+transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
+mesh = SubResource("BoxMesh_iafiv")
+surface_material_override/0 = ExtResource("4_ijn0p")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -20.9285)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D5"]
+transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
+shape = SubResource("BoxShape3D_3imfn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D5"]
+transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
+mesh = SubResource("BoxMesh_iafiv")
+surface_material_override/0 = ExtResource("4_ijn0p")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.0089, 2.1, -0.0137901)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D6"]
+transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
+shape = SubResource("BoxShape3D_3imfn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D6"]
+transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
+mesh = SubResource("BoxMesh_iafiv")
+surface_material_override/0 = ExtResource("4_ijn0p")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.938, 2.1, -0.0137901)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D7"]
+transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
+shape = SubResource("BoxShape3D_3imfn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D7"]
+transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
+mesh = SubResource("BoxMesh_iafiv")
+surface_material_override/0 = ExtResource("4_ijn0p")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05827, 0.631339, -0.388389)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D3"]
+transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 5, 0.4, 0)
+shape = SubResource("BoxShape3D_3imfn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D3"]
+transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 5, 0.4, 0)
+mesh = SubResource("BoxMesh_iafiv")
+surface_material_override/0 = ExtResource("4_ijn0p")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23965, 3.00516, -0.388389)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D8"]
+transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 5, 0.4, 0)
+shape = SubResource("BoxShape3D_3imfn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D8"]
+transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 5, 0.4, 0)
+mesh = SubResource("BoxMesh_iafiv")
+surface_material_override/0 = ExtResource("4_ijn0p")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23965, 3.00516, 3.92837)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D9"]
+transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 5, 0.4, 0)
+shape = SubResource("BoxShape3D_3imfn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D9"]
+transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 5, 0.4, 0)
+mesh = SubResource("BoxMesh_iafiv")
+surface_material_override/0 = ExtResource("4_ijn0p")
+
+[node name="StaticBody3D10" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1838, 3.00516, 11.4226)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D10"]
+transform = Transform3D(8, 0, 0, 0, 0.4, 0, 0, 0, 8, 5, 0.4, 0)
+shape = SubResource("BoxShape3D_3imfn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D10"]
+transform = Transform3D(8, 0, 0, 0, 0.4, 0, 0, 0, 8, 5, 0.4, 0)
+mesh = SubResource("BoxMesh_iafiv")
+surface_material_override/0 = ExtResource("4_ijn0p")
+
+[node name="MusicPlayer" type="Node3D" parent="."]
+script = ExtResource("6_tyxjt")
+audio_stream = ExtResource("7_07lms")
+volume_db = -12.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicPlayer"]
+
+[node name="Player" parent="." instance=ExtResource("8_gi8m4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97142, 1.03185, 2.95859)
+
+[node name="Node3D" parent="." instance=ExtResource("9_kfebt")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.242267, 0.355172, 5.65284)
+
+[node name="npc_puppet" parent="." instance=ExtResource("1_t0hvh")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -0.320712, 3.81489)
+
+[node name="npc_old_man" parent="." instance=ExtResource("9_r72dd")]
+transform = Transform3D(2.35, 0, 0, 0, 2.35, 0, 0, 0, 2.35, -7.92671, 4.87011, 11.9013)
+
+[node name="npc_gremlin" parent="." instance=ExtResource("10_r72dd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.440997, 1.10939, 7.12658)
