@@ -28,5 +28,5 @@ autostart = true
 transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 0.4, -0.0731002, 0, -0.0572713)
 shape = SubResource("CylinderShape3D_0sire")
 
-[connection signal="body_entered" from="CharacterBody3D/DetectionArea" to="CharacterBody3D" method="_on_body_entered"]
-[connection signal="body_exited" from="CharacterBody3D/DetectionArea" to="CharacterBody3D" method="_on_body_exited"]
+[connection signal="body_entered" from="CharacterBody3D/DetectionArea" to="CharacterBody3D" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/DetectionArea" to="CharacterBody3D" method="_on_detection_area_body_exited"]
