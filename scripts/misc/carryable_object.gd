@@ -12,6 +12,9 @@ var is_carried: bool = false
 var player: Node3D = null
 var original_parent: Node  # Add this to track original parent
 
+func _ready():
+	add_to_group("items")
+
 func _apply_gyro_stabilization(delta: float) -> void:
 	# Get current orientation vectors
 	var current_up = global_transform.basis.y.normalized()

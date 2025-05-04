@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cof0684thlpyg"]
+[gd_scene load_steps=22 format=3 uid="uid://cof0684thlpyg"]
 
 [ext_resource type="Script" uid="uid://b02rg7ocnulcl" path="res://scripts/misc/mini_map.gd" id="1_jmes4"]
 [ext_resource type="PackedScene" uid="uid://1xb5rlxmoqi7" path="res://scenes/npc/npc_puppet.tscn" id="1_t0hvh"]
@@ -6,10 +6,11 @@
 [ext_resource type="Material" uid="uid://qspubcspupbr" path="res://materials/cyan_floor.tres" id="3_r72dd"]
 [ext_resource type="Script" uid="uid://ceppitbvw0vuk" path="res://scripts/misc/custom_renderer.gd" id="3_tyxjt"]
 [ext_resource type="Script" uid="uid://7b04wiw2pemt" path="res://scripts/level/geometry.gd" id="4_07lms"]
-[ext_resource type="Script" uid="uid://ci6bxl0r0pr1b" path="res://scenes/levels/map_overlay.gd" id="4_gi8m4"]
+[ext_resource type="Script" uid="uid://bevfftr734bk0" path="res://scripts/level/minimap_camera.gd" id="4_gi8m4"]
 [ext_resource type="Material" uid="uid://dbo0bbv251g4c" path="res://materials/cyan_wall.tres" id="4_ijn0p"]
+[ext_resource type="Material" uid="uid://dd6x0c23n1a5c" path="res://materials/blue_wall.tres" id="5_cwffn"]
 [ext_resource type="Script" uid="uid://d4kls08621kma" path="res://scripts/misc/music_player.gd" id="6_tyxjt"]
-[ext_resource type="AudioStream" uid="uid://bapqy3sueastp" path="res://sounds/music/into_space.ogg" id="8_07lms"]
+[ext_resource type="AudioStream" uid="uid://yoewacl1umk5" path="res://sounds/music/suspensful.ogg" id="7_07lms"]
 [ext_resource type="PackedScene" uid="uid://dwngmervcgx23" path="res://scenes/player/player.tscn" id="8_gi8m4"]
 [ext_resource type="PackedScene" uid="uid://betl7osspfjrq" path="res://scenes/npc/npc_kasperl.tscn" id="9_kfebt"]
 [ext_resource type="PackedScene" uid="uid://d1usq1ie2yyt5" path="res://scenes/npc/npc_old_man.tscn" id="9_r72dd"]
@@ -40,8 +41,6 @@ environment = SubResource("Environment_dvup1")
 [node name="MiniMap" type="CanvasLayer" parent="."]
 process_mode = 3
 script = ExtResource("1_jmes4")
-player_color = Color(4.81307e-07, 0.467412, 1.15514e-06, 1)
-enemy_color = Color(0.842635, 3.56168e-06, 4.81307e-07, 1)
 
 [node name="Label" type="Label" parent="MiniMap"]
 offset_right = 40.0
@@ -58,12 +57,10 @@ script = ExtResource("3_tyxjt")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
 projection = 1
 size = 32.0
-
-[node name="MapOverlay" type="TextureRect" parent="MiniMap/SubViewport"]
-offset_right = 40.0
-offset_bottom = 40.0
-stretch_mode = 4
 script = ExtResource("4_gi8m4")
+material_override = ExtResource("5_cwffn")
+
+[node name="MapOverlay" type="Node2D" parent="MiniMap/SubViewport"]
 
 [node name="TextureRect" type="TextureRect" parent="MiniMap"]
 anchors_preset = 1
@@ -199,13 +196,25 @@ surface_material_override/0 = ExtResource("4_ijn0p")
 
 [node name="MusicPlayer" type="Node3D" parent="."]
 script = ExtResource("6_tyxjt")
-audio_stream = ExtResource("8_07lms")
+audio_stream = ExtResource("7_07lms")
 volume_db = -12.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicPlayer"]
 
 [node name="Player" parent="." instance=ExtResource("8_gi8m4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97142, 1.03185, 2.95859)
+
+[node name="Node3D" parent="." instance=ExtResource("9_kfebt")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.242267, 0.355172, 5.65284)
+
+[node name="npc_puppet" parent="." instance=ExtResource("1_t0hvh")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -0.320712, 3.81489)
+
+[node name="npc_old_man" parent="." instance=ExtResource("9_r72dd")]
+transform = Transform3D(2.35, 0, 0, 0, 2.35, 0, 0, 0, 2.35, -7.92671, 4.87011, 11.9013)
+
+[node name="npc_gremlin" parent="." instance=ExtResource("10_r72dd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.440997, 1.10939, 7.12658)
 
 [node name="SphereObject" parent="." instance=ExtResource("11_ijn0p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61046, 0.802454, -3.48597)
@@ -218,18 +227,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3511, 0.802454, -5.48764)
 
 [node name="SphereObject4" parent="." instance=ExtResource("11_ijn0p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3511, 0.802454, -7.7961)
-
-[node name="NPCs" type="Node3D" parent="."]
-script = ExtResource("4_07lms")
-
-[node name="npc_puppet" parent="NPCs" instance=ExtResource("1_t0hvh")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -0.320712, 3.81489)
-
-[node name="npc_old_man" parent="NPCs" instance=ExtResource("9_r72dd")]
-transform = Transform3D(2.35, 0, 0, 0, 2.35, 0, 0, 0, 2.35, -7.92671, 4.87011, 11.9013)
-
-[node name="npc_gremlin" parent="NPCs" instance=ExtResource("10_r72dd")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.440997, 1.10939, 7.12658)
-
-[node name="npc_kasper" parent="NPCs" instance=ExtResource("9_kfebt")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.242267, 0.355172, 5.65284)

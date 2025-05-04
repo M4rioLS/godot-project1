@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://35t322s3wtrn"]
+
+[ext_resource type="Shader" uid="uid://ya2ayovd7vh4" path="res://shaders/visibility_control.gdshader" id="1_46ofh"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_46ofh")
+shader_parameter/cull_mask = 1

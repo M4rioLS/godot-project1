@@ -55,9 +55,8 @@ interact={
 
 [layer_names]
 
-3d_render/layer_1="Environment"
-3d_render/layer_2="Interactables"
-3d_render/layer_3="Player"
+3d_render/layer_1="main_world"
+3d_render/layer_2="minimap_world"
 
 [rendering]
 
