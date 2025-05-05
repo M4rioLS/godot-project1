@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddj4lt8h2m22u"]
+
+[ext_resource type="Script" uid="uid://dwhp1ev6uh4st" path="res://scripts/misc/carryable_object.gd" id="1_xlhvd"]
+[ext_resource type="PackedScene" uid="uid://bghh55it6bivs" path="res://models/objects/items/alien_gun.glb" id="2_xlhvd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vghth"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532467, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 2.5
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.35, 0)
+script = ExtResource("1_xlhvd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.599, 0, 0, 0, 0.2, 0, 0, 0, 0.725, 0.03, -0.383, 0.065)
+shape = SubResource("BoxShape3D_vghth")
+
+[node name="Model" parent="RigidBody3D" instance=ExtResource("2_xlhvd")]
+transform = Transform3D(-2.84124e-08, -0.65, 0, 0.65, -2.84124e-08, 0, 0, 0, 0.65, 0.0460309, -0.403967, 0.085912)

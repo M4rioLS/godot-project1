@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://teuylk8o7voa"]
-
-[ext_resource type="PackedScene" uid="uid://bfer017aquh5x" path="res://models/creatures/gremlin.glb" id="1_8y65k"]
-
-[node name="Node3D" type="Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.440997, 1.03014, 0.756454)
-
-[node name="Model" parent="." instance=ExtResource("1_8y65k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.201619, 0, -0.331268)

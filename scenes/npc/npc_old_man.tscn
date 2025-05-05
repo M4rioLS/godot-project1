@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1usq1ie2yyt5"]
 
 [ext_resource type="Script" uid="uid://cv0jh17tt5i0r" path="res://scripts/npc/npc.gd" id="1_0sire"]
-[ext_resource type="PackedScene" uid="uid://cr1gej21f1idw" path="res://models/creatures/old_man.glb" id="1_ufiyk"]
 [ext_resource type="Script" uid="uid://ck3wnhm1uslw7" path="res://scripts/npc/npc_movement.gd" id="2_pdvhc"]
+[ext_resource type="PackedScene" uid="uid://cpykpw86lwwd2" path="res://models/creatures/alien.glb" id="3_y7snb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0sire"]
 
@@ -12,9 +12,6 @@ script = ExtResource("1_0sire")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["npc"]]
 script = ExtResource("2_pdvhc")
-
-[node name="Model" parent="CharacterBody3D" instance=ExtResource("1_ufiyk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0941501, -1.19209e-07, -0.039434)
 
 [node name="DetectionArea" type="Area3D" parent="CharacterBody3D"]
 
@@ -27,6 +24,9 @@ autostart = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 0.4, -0.0731002, 0, -0.0572713)
 shape = SubResource("CylinderShape3D_0sire")
+
+[node name="Model" parent="CharacterBody3D" instance=ExtResource("3_y7snb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0758066, -0.00483888, -0.034015)
 
 [connection signal="body_entered" from="CharacterBody3D/DetectionArea" to="CharacterBody3D" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="CharacterBody3D/DetectionArea" to="CharacterBody3D" method="_on_detection_area_body_exited"]

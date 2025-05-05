@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://t00cxrn8ks8n"]
+
+[ext_resource type="Script" uid="uid://dwhp1ev6uh4st" path="res://scripts/misc/carryable_object.gd" id="1_h71il"]
+[ext_resource type="PackedScene" uid="uid://c4duduj06tipx" path="res://models/objects/items/alien_statue.glb" id="3_hk23g"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hk23g"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532467, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 2.5
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.35, 0)
+script = ExtResource("1_h71il")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("CylinderShape3D_hk23g")
+
+[node name="Model" parent="RigidBody3D" instance=ExtResource("3_hk23g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0137951, -0.02604, -0.00486565)
