@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://eqrajkxujmjk"]
 
-[ext_resource type="Script" uid="uid://btskhhm6obouu" path="res://scripts/level/main.gd" id="1_2vj2h"]
+[ext_resource type="Script" uid="uid://btskhhm6obouu" path="res://scripts/Multiplayer/main.gd" id="1_2vj2h"]
 [ext_resource type="Script" uid="uid://8xwu3lnpb6ud" path="res://scripts/Multiplayer/steam.gd" id="2_y0acb"]
 
 [node name="Main" type="Node2D"]
@@ -13,6 +13,12 @@ script = ExtResource("2_y0acb")
 offset_right = 220.0
 offset_bottom = 87.0
 text = "Host"
+
+[node name="Refresh" type="Button" parent="."]
+offset_top = 90.0
+offset_right = 220.0
+offset_bottom = 177.0
+text = "Refresh"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 spawn_path = NodePath("..")
@@ -27,3 +33,4 @@ offset_bottom = 451.0
 layout_mode = 2
 
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Refresh" to="." method="_on_refresh_pressed"]

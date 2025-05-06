@@ -13,12 +13,22 @@ var case_sensitive : bool = false
 func _ready():
 	ns.spawn_function = spawn_level
 	Steam.lobby_created.connect(_on_lobby_created)
+	Steam.lobby_match_list.connect(_on_lobby_match_list)
+	_open_lobby_list()
 
 func _on_host_pressed():
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC)
 	multiplayer.multiplayer_peer = peer
 	ns.spawn("res://scenes/levels/level_01.tscn")
 	$Host.hide()
+	$LobbyContainer/Lobbies.hide()
+	$Refresh.hide()
+	
+func _on_refresh_pressed():
+	if $LobbyContainer/Lobbies.get_child_count() > 0:
+		for n in $LobbyContainer/Lobbies.get_children():
+			n.queue_free()
+	_open_lobby_list()
 
 func spawn_level(data): 
 	var a = (load(data) as PackedScene).instantiate()
@@ -41,6 +51,8 @@ func join_lobby(id):
 	peer.connect_lobby(id)
 	multiplayer.multiplayer_peer = peer
 	$Host.hide()
+	$LobbyContainer/Lobbies.hide()
+	$Refresh.hide()
 	
 func _open_lobby_list() -> void:
 	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
