@@ -15,8 +15,8 @@ center_of_mass = Vector3(0, -0.35, 0)
 script = ExtResource("1_xlhvd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(0.599, 0, 0, 0, 0.2, 0, 0, 0, 0.725, 0.03, -0.383, 0.065)
+transform = Transform3D(-2.61831e-08, 0, -0.725, 0, 0.2, 0, 0.599, 0, -3.16908e-08, 0.03, -0.383, 0.065)
 shape = SubResource("BoxShape3D_vghth")
 
 [node name="Model" parent="RigidBody3D" instance=ExtResource("2_xlhvd")]
-transform = Transform3D(-2.84124e-08, -0.65, 0, 0.65, -2.84124e-08, 0, 0, 0, 0.65, 0.0460309, -0.403967, 0.085912)
+transform = Transform3D(1.24195e-15, 2.84124e-08, -0.65, 0.65, -2.84124e-08, 0, -2.84124e-08, -0.65, -2.84124e-08, 0.0460309, -0.403967, 0.085912)

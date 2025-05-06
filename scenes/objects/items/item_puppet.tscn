@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2twh2ppnm3a1"]
+
+[ext_resource type="Script" uid="uid://dwhp1ev6uh4st" path="res://scripts/misc/carryable_object.gd" id="1_edi1y"]
+[ext_resource type="PackedScene" uid="uid://b7t5myhvmvumj" path="res://models/creatures/puppet.glb" id="2_edi1y"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hk23g"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532467, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 2.5
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.35, 0)
+script = ExtResource("1_edi1y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("CylinderShape3D_hk23g")
+
+[node name="Model" parent="RigidBody3D" instance=ExtResource("2_edi1y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0686529, -0.013, -0.017)

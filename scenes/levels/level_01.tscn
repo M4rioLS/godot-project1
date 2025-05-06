@@ -1,12 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://cof0684thlpyg"]
+[gd_scene load_steps=28 format=3 uid="uid://cof0684thlpyg"]
 
 [ext_resource type="Script" uid="uid://b02rg7ocnulcl" path="res://scripts/misc/mini_map.gd" id="1_jmes4"]
-[ext_resource type="PackedScene" uid="uid://1xb5rlxmoqi7" path="res://scenes/npc/npc_puppet.tscn" id="1_t0hvh"]
 [ext_resource type="Script" uid="uid://dssdfyjkl3ltm" path="res://scripts/misc/hud_script.gd" id="2_kfebt"]
 [ext_resource type="Material" uid="uid://qspubcspupbr" path="res://materials/cyan_floor.tres" id="3_r72dd"]
 [ext_resource type="Script" uid="uid://ceppitbvw0vuk" path="res://scripts/misc/custom_renderer.gd" id="3_tyxjt"]
 [ext_resource type="Script" uid="uid://7b04wiw2pemt" path="res://scripts/level/geometry.gd" id="4_07lms"]
-[ext_resource type="Script" uid="uid://ci6bxl0r0pr1b" path="res://scenes/levels/map_overlay.gd" id="4_gi8m4"]
+[ext_resource type="Script" uid="uid://ci6bxl0r0pr1b" path="res://scripts/level/map_overlay.gd" id="4_gi8m4"]
 [ext_resource type="Material" uid="uid://dbo0bbv251g4c" path="res://materials/cyan_wall.tres" id="4_ijn0p"]
 [ext_resource type="Script" uid="uid://d4kls08621kma" path="res://scripts/misc/music_player.gd" id="6_tyxjt"]
 [ext_resource type="AudioStream" uid="uid://bapqy3sueastp" path="res://sounds/music/into_space.ogg" id="8_07lms"]
@@ -17,6 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://t00cxrn8ks8n" path="res://scenes/objects/items/item_statue.tscn" id="11_ijn0p"]
 [ext_resource type="PackedScene" uid="uid://bl4mjmjqp8lg0" path="res://scenes/objects/items/item_container_ore.tscn" id="16_cwffn"]
 [ext_resource type="PackedScene" uid="uid://ddj4lt8h2m22u" path="res://scenes/objects/items/item_gun.tscn" id="17_e6lid"]
+[ext_resource type="PackedScene" uid="uid://c2twh2ppnm3a1" path="res://scenes/objects/items/item_puppet.tscn" id="18_3g50r"]
+[ext_resource type="PackedScene" uid="uid://ceoryfk0uuqdi" path="res://scenes/objects/items/item_dna.tscn" id="18_iu1m7"]
+[ext_resource type="PackedScene" uid="uid://c60l5dabpstxd" path="res://scenes/objects/items/item_mask.tscn" id="19_cywot"]
+[ext_resource type="PackedScene" uid="uid://dvj16iqp7mh3v" path="res://scenes/objects/items/item_instrument.tscn" id="20_cywot"]
+[ext_resource type="PackedScene" uid="uid://hb1ichketv4g" path="res://scenes/objects/items/item_alien_parts.tscn" id="21_svp4f"]
+[ext_resource type="PackedScene" uid="uid://dkfcuwl404eip" path="res://scenes/objects/items/item_map.tscn" id="22_1b0o8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jt1vd"]
 
@@ -210,20 +215,8 @@ volume_db = -12.0
 [node name="Player" parent="." instance=ExtResource("8_gi8m4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97142, 1.03185, 2.95859)
 
-[node name="Item1" parent="." instance=ExtResource("11_ijn0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61046, 0.633584, -3.48597)
-
-[node name="Item2" parent="." instance=ExtResource("11_ijn0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61046, 0.633584, -5.48764)
-
-[node name="Item3" parent="." instance=ExtResource("11_ijn0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3511, 0.633584, -5.48764)
-
 [node name="NPCs" type="Node3D" parent="."]
 script = ExtResource("4_07lms")
-
-[node name="npc_puppet" parent="NPCs" instance=ExtResource("1_t0hvh")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -0.320712, 3.81489)
 
 [node name="npc_alien" parent="NPCs" instance=ExtResource("9_r72dd")]
 transform = Transform3D(2.35, 0, 0, 0, 2.35, 0, 0, 0, 2.35, -7.92671, 4.87011, 11.9013)
@@ -234,8 +227,38 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.440997, 1.10939, 7.12658)
 [node name="npc_kasper" parent="NPCs" instance=ExtResource("9_kfebt")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.242267, 0.355172, 5.65284)
 
-[node name="Item4" parent="." instance=ExtResource("16_cwffn")]
-transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 1.87718, 0.975775, -7.5868)
+[node name="Items" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00468016, 0.632467, 3.12994)
 
-[node name="Node3D" parent="." instance=ExtResource("17_e6lid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9698, 0.646805, -8.14945)
+[node name="Item1" parent="Items" instance=ExtResource("11_ijn0p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.61591, 0.00111699, 3.60578)
+
+[node name="Item2" parent="Items" instance=ExtResource("11_ijn0p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.61758, 0.00111699, 3.60578)
+
+[node name="Item3" parent="Items" instance=ExtResource("11_ijn0p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.61758, 0.00111699, 1.34642)
+
+[node name="Item4" parent="Items" instance=ExtResource("16_cwffn")]
+transform = Transform3D(-7.64949e-08, 0, -1.75, 0, 1.75, 0, 1.75, 0, -7.64949e-08, 10.7167, 0.343308, 1.8725)
+
+[node name="Item5" parent="Items" instance=ExtResource("17_e6lid")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.2794, 0.014338, 3.96512)
+
+[node name="Item6" parent="Items" instance=ExtResource("18_3g50r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Item7" parent="Items" instance=ExtResource("18_iu1m7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.0259, 0, 5.02794)
+
+[node name="Item8" parent="Items" instance=ExtResource("19_cywot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0196, 0.0711709, 3.78804)
+
+[node name="Item9" parent="Items" instance=ExtResource("20_cywot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.98544, -0.0207263, 0.64497)
+
+[node name="Item10" parent="Items" instance=ExtResource("21_svp4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.82194, -0.00131959, -1.39061)
+
+[node name="Item11" parent="Items" instance=ExtResource("22_1b0o8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.39675, -0.012662, -1.3041)

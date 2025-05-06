@@ -5,9 +5,14 @@ var HEALTH = MAX_HEALTH
 @export var MAX_STAMINA = 100.0
 var STAMINA = MAX_STAMINA
 
+# --- Node References ---
+@onready var character: CharacterBody3D = $CharacterBody3D
 
 func getHealth():
 	return HEALTH
+	
+func getCarriedObject():
+		return character.carried_object
 
 func _ready():
 	add_to_group("player")

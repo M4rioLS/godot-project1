@@ -8,6 +8,7 @@ extends CharacterBody3D
 # Get gravity from project settings
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var carried_object: CarryableObject3D = null
+var carryable_object_max_weight_jump: float = 5.0
 var nearby_objects: Array = []
 
 @onready var pickup_area: Area3D = $PickupArea
@@ -73,7 +74,11 @@ func _physics_process(delta):
 
 	# Handle Jump (using the default "ui_accept" action, usually Spacebar)
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		if carried_object:
+			if carried_object.weight < carryable_object_max_weight_jump:
+				velocity.y = JUMP_VELOCITY
+		else:
+			velocity.y = JUMP_VELOCITY
 		
 	if carried_object:
 		# Smoothly follow carry position while respecting physics
