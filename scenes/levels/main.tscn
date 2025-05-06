@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://eqrajkxujmjk"]
+
+[ext_resource type="Script" uid="uid://btskhhm6obouu" path="res://scripts/level/main.gd" id="1_2vj2h"]
+[ext_resource type="Script" uid="uid://8xwu3lnpb6ud" path="res://scripts/Multiplayer/steam.gd" id="2_y0acb"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_2vj2h")
+
+[node name="Steam" type="Node" parent="."]
+script = ExtResource("2_y0acb")
+
+[node name="Host" type="Button" parent="."]
+offset_right = 220.0
+offset_bottom = 87.0
+text = "Host"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("..")
+
+[node name="LobbyContainer" type="ScrollContainer" parent="."]
+offset_left = 222.0
+offset_top = -2.0
+offset_right = 853.0
+offset_bottom = 451.0
+
+[node name="Lobbies" type="VBoxContainer" parent="LobbyContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]

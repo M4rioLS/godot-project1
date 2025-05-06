@@ -19,6 +19,8 @@ var nearby_objects: Array = []
 @onready var camera = $Head/Camera3D # Path relative to CharacterBody3D
 
 func _ready():
+	if !is_multiplayer_authority():
+		camera.environment = null
 	# Hide and capture the mouse cursor when the game starts
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pickup_area.body_entered.connect(_on_pickup_area_body_entered)
@@ -68,6 +70,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta):
+	if !is_multiplayer_authority():
+		return
 	# Apply gravity if not on the floor
 	if not is_on_floor():
 		velocity.y -= gravity * delta
