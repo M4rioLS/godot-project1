@@ -4,6 +4,11 @@ extends CharacterBody3D
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 5.0
 @export var SENSITIVITY = 0.003 # Mouse sensitivity
+@export var MAX_HEALTH = 100.0
+var HEALTH = MAX_HEALTH
+@export var MAX_STAMINA = 100.0
+var STAMINA = MAX_STAMINA
+var player_id: int = 0
 
 # Get gravity from project settings
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -13,12 +18,15 @@ var nearby_objects: Array = []
 
 @onready var pickup_area: Area3D = $PickupArea
 @onready var carry_position: Marker3D = $CarryPosition
+#@onready var username_label = $Username
+var username = ""
 
 # Node references (assigned in _ready)
 @onready var head = $Head
 @onready var camera = $Head/Camera3D # Path relative to CharacterBody3D
 
 func _ready():
+	#add_to_group("player")
 	if !is_multiplayer_authority():
 		camera.environment = null
 	# Hide and capture the mouse cursor when the game starts
@@ -27,6 +35,8 @@ func _ready():
 	pickup_area.body_exited.connect(_on_pickup_area_body_exited)
 
 func _unhandled_input(event):
+	if !is_multiplayer_authority():
+		return
 	# Handle mouse look
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		# Rotate the CharacterBody3D left/right (Y-axis)
@@ -47,6 +57,8 @@ func _unhandled_input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			
 func _input(event: InputEvent) -> void:
+	if !is_multiplayer_authority():
+		return
 	if event.is_action_pressed("interact"):
 		if carried_object:
 			carried_object.drop()
@@ -114,6 +126,12 @@ func _physics_process(delta):
 
 	# Apply the calculated velocity
 	move_and_slide()
+	
+func getHealth():
+	return HEALTH
+	
+func getCarriedObject():
+	return carried_object
 	
 func _on_pickup_area_body_entered(body: Node3D) -> void:
 	if body is CarryableObject3D and not body.is_carried:

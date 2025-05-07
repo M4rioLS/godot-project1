@@ -136,14 +136,14 @@ func update_chasing_state(delta: float) -> void:
 				player = null
 				speed = original_speed # Revert speed if changed for chasing
 				pick_random_direction() # Go back to patrol
-	print(chasing_timer)
+	#print(chasing_timer)
 
 	# --- Vision Cone and Line of Sight Check ---
 	# Only try to *start* chasing if not already chasing (or if timer just ran out)
 	#if not is_chasing:
 	var potential_target = find_player_in_vision()
 	if is_instance_valid(potential_target):
-		print("Player spotted! Starting chase.")
+		#print("Player spotted! Starting chase.")
 		player = potential_target
 		is_chasing = true
 		is_movement_stopped = false # Ensure movement isn't stopped
@@ -192,7 +192,7 @@ func find_player_in_vision() -> Node3D:
 					return p # Return the valid target
 	sees_player = false
 	# No player found satisfying all conditions
-	print(sees_player)
+	#print(sees_player)
 	return null
 
 

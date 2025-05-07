@@ -13,14 +13,16 @@ extends CanvasLayer
 @onready var viewport := $SubViewport
 @onready var map_texture := $TextureRect
 @onready var camera := $SubViewport/Camera3D
+@onready var parent_node: Node3D = null # Variable to hold a reference to your player node
 
-var player: Node3D
+var player: CharacterBody3D
 var walls: TileMap
 var enemies: Array
 var items: Array
 var vec2: Vector2
 
 func _ready():
+	parent_node = get_node("../../Players/") 
 	# Configure viewport
 	viewport.size = Vector2i(250, 250)
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
@@ -42,11 +44,20 @@ func _ready():
 	camera.environment.background_color = Color.DIM_GRAY
 	
 	# Find relevant nodes
-	player = get_tree().get_first_node_in_group("player")
+	player = _find_player()
 	walls = get_tree().get_first_node_in_group("walls")
 	#camera.zoom = Vector2(zoom, zoom)
-
+	
+func _find_player():
+	var children = parent_node.get_children()
+	for child in children:
+			if child is CharacterBody3D:
+				player = child # This is the next CharacterBody3D
+				return
+				
 func _process(delta: float):
+	if player == null:
+		_find_player()
 	if is_instance_valid(player):
 		# Follow player position while maintaining height
 		camera.position = Vector3(

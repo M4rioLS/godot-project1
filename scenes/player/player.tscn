@@ -1,8 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dwngmervcgx23"]
 
 [ext_resource type="Script" uid="uid://byf3la1lyhg0b" path="res://scripts/player/player_movement.gd" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://c8udpl8ul5dxm" path="res://scripts/player/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://csamjsfn662ob" path="res://scripts/player/player_camera.gd" id="3_gmlin"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gmlin"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g2els"]
 
@@ -16,32 +17,35 @@ properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
-[node name="Player" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03185, 0)
-script = ExtResource("1_g2els")
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["player"]]
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27719, 0)
 script = ExtResource("1_4flbx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.17, 0, 0, 0, 1, 0, 0.148529, 0)
+mesh = SubResource("CapsuleMesh_gmlin")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.15, 0, 0, 0, 1, 0, 0.142419, 0)
 shape = SubResource("CylinderShape3D_g2els")
 
-[node name="Head" type="Node3D" parent="CharacterBody3D"]
+[node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.850034, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]
+[node name="Camera3D" type="Camera3D" parent="Head"]
 current = true
 script = ExtResource("3_gmlin")
 
-[node name="PickupArea" type="Area3D" parent="CharacterBody3D"]
+[node name="PickupArea" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/PickupArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("SphereShape3D_dovo2")
 
-[node name="CarryPosition" type="Marker3D" parent="CharacterBody3D"]
+[node name="CarryPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+root_path = NodePath("")
 replication_config = SubResource("SceneReplicationConfig_gmlin")

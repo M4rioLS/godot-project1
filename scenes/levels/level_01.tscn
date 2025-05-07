@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dvj16iqp7mh3v" path="res://scenes/objects/items/item_instrument.tscn" id="20_cywot"]
 [ext_resource type="PackedScene" uid="uid://hb1ichketv4g" path="res://scenes/objects/items/item_alien_parts.tscn" id="21_svp4f"]
 [ext_resource type="PackedScene" uid="uid://dkfcuwl404eip" path="res://scenes/objects/items/item_map.tscn" id="22_1b0o8"]
-[ext_resource type="Script" uid="uid://dstoyxtbsjxqj" path="res://scripts/Multiplayer/multiplayer_spawner.gd" id="23_1b0o8"]
+[ext_resource type="Script" uid="uid://dstoyxtbsjxqj" path="res://scripts/multiplayer/multiplayer_spawner.gd" id="23_1b0o8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jt1vd"]
 
@@ -37,7 +37,7 @@ sky = SubResource("Sky_bri2l")
 
 [sub_resource type="BoxMesh" id="BoxMesh_iafiv"]
 
-[node name="level_01" type="Node3D"]
+[node name="GameWorld" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0667261, 0.932679, -0.354483, -0.885302, 0.219206, 0.410108, 0.460204, 0.28646, 0.840329, 0, 1.28599, 2.38476)
@@ -85,6 +85,7 @@ grow_horizontal = 0
 [node name="Geometry" type="Node3D" parent="."]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.133073, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D"]
 transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 40, 0, 0, 0)
@@ -96,7 +97,7 @@ mesh = SubResource("BoxMesh_iafiv")
 surface_material_override/0 = ExtResource("3_r72dd")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Geometry"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05827, 0.631339, -0.388389)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9747, 0.441925, -0.388389)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D3"]
 transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 5, 0.4, 0)
@@ -147,7 +148,7 @@ surface_material_override/0 = ExtResource("4_ijn0p")
 script = ExtResource("4_07lms")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Geometry/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.144757, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.70332, -1.77645, -0.384726)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/StaticBody3D2"]
 transform = Transform3D(2, 0, 0, 0, 3.5, 0, 0, 0, 2, 0, 2, 0)
@@ -159,7 +160,7 @@ mesh = SubResource("BoxMesh_iafiv")
 surface_material_override/0 = ExtResource("4_ijn0p")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="Geometry/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 20.747)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89699, 20.747)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/StaticBody3D4"]
 transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
@@ -171,7 +172,7 @@ mesh = SubResource("BoxMesh_iafiv")
 surface_material_override/0 = ExtResource("4_ijn0p")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="Geometry/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -20.9285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89699, -20.9285)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/StaticBody3D5"]
 transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
@@ -183,7 +184,7 @@ mesh = SubResource("BoxMesh_iafiv")
 surface_material_override/0 = ExtResource("4_ijn0p")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="Geometry/Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.0089, 2.1, -0.0137901)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.0089, 1.89699, -0.0137901)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/StaticBody3D6"]
 transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
@@ -195,7 +196,7 @@ mesh = SubResource("BoxMesh_iafiv")
 surface_material_override/0 = ExtResource("4_ijn0p")
 
 [node name="StaticBody3D7" type="StaticBody3D" parent="Geometry/Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.938, 2.1, -0.0137901)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.938, 1.89699, -0.0137901)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/StaticBody3D7"]
 transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
@@ -213,9 +214,6 @@ volume_db = -12.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicPlayer"]
 
-[node name="Player" parent="." instance=ExtResource("8_gi8m4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97142, 1.03185, 2.95859)
-
 [node name="NPCs" type="Node3D" parent="."]
 script = ExtResource("4_07lms")
 
@@ -223,10 +221,10 @@ script = ExtResource("4_07lms")
 transform = Transform3D(2.35, 0, 0, 0, 2.35, 0, 0, 0, 2.35, -7.92671, 4.87011, 11.9013)
 
 [node name="npc_alien_parasite" parent="NPCs" instance=ExtResource("10_r72dd")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.440997, 1.10939, 7.12658)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.440997, 1.00819, 7.12658)
 
 [node name="npc_kasper" parent="NPCs" instance=ExtResource("9_kfebt")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.242267, 0.355172, 5.65284)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.242267, 0.253977, 5.65284)
 
 [node name="Items" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00468016, 0.632467, 3.12994)
