@@ -1,13 +1,13 @@
 extends CharacterBody3D
 
 # Movement variables
-@export var SPEED = 5.0
-@export var JUMP_VELOCITY = 5.0
-@export var SENSITIVITY = 0.003 # Mouse sensitivity
-@export var MAX_HEALTH = 100.0
-var HEALTH = MAX_HEALTH
-@export var MAX_STAMINA = 100.0
-var STAMINA = MAX_STAMINA
+@export var SPEED : float = 5.0
+@export var JUMP_VELOCITY : float = 5.0
+@export var SENSITIVITY : float = 0.003 # Mouse sensitivity
+@export var MAX_HEALTH : float = 100.0
+var HEALTH := MAX_HEALTH
+@export var MAX_STAMINA : float = 100.0
+var STAMINA := MAX_STAMINA
 var player_id: int = 0
 
 # Get gravity from project settings
@@ -82,19 +82,20 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta):
-	if !is_multiplayer_authority():
-		return
+	#if !is_multiplayer_authority():
+	#	return
+	
 	# Apply gravity if not on the floor
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
 	# Handle Jump (using the default "ui_accept" action, usually Spacebar)
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and STAMINA > 0:
 		if carried_object:
 			if carried_object.weight < carryable_object_max_weight_jump:
-				velocity.y = JUMP_VELOCITY
+				_jump(15)
 		else:
-			velocity.y = JUMP_VELOCITY
+			_jump(10)
 		
 	if carried_object:
 		# Smoothly follow carry position while respecting physics
@@ -141,3 +142,6 @@ func _on_pickup_area_body_entered(body: Node3D) -> void:
 func _on_pickup_area_body_exited(body: Node3D) -> void:
 	if body is CarryableObject3D and nearby_objects.has(body):
 		nearby_objects.erase(body)
+func _jump(cost : float):
+	velocity.y = JUMP_VELOCITY
+	STAMINA = max(STAMINA - cost, 0)
