@@ -1,28 +1,28 @@
 [gd_scene load_steps=29 format=3 uid="uid://cof0684thlpyg"]
 
-[ext_resource type="Script" uid="uid://b02rg7ocnulcl" path="res://scripts/misc/mini_map.gd" id="1_jmes4"]
-[ext_resource type="Script" uid="uid://dssdfyjkl3ltm" path="res://scripts/misc/hud_script.gd" id="2_kfebt"]
-[ext_resource type="Material" uid="uid://qspubcspupbr" path="res://materials/cyan_floor.tres" id="3_r72dd"]
-[ext_resource type="Script" uid="uid://ceppitbvw0vuk" path="res://scripts/misc/custom_renderer.gd" id="3_tyxjt"]
-[ext_resource type="Script" uid="uid://7b04wiw2pemt" path="res://scripts/level/geometry.gd" id="4_07lms"]
-[ext_resource type="Script" uid="uid://ci6bxl0r0pr1b" path="res://scripts/level/map_overlay.gd" id="4_gi8m4"]
-[ext_resource type="Material" uid="uid://dbo0bbv251g4c" path="res://materials/cyan_wall.tres" id="4_ijn0p"]
-[ext_resource type="Script" uid="uid://d4kls08621kma" path="res://scripts/misc/music_player.gd" id="6_tyxjt"]
-[ext_resource type="AudioStream" uid="uid://bapqy3sueastp" path="res://sounds/music/into_space.ogg" id="8_07lms"]
-[ext_resource type="PackedScene" uid="uid://dwngmervcgx23" path="res://scenes/player/player.tscn" id="8_gi8m4"]
-[ext_resource type="PackedScene" uid="uid://betl7osspfjrq" path="res://scenes/npc/npc_kasperl.tscn" id="9_kfebt"]
-[ext_resource type="PackedScene" uid="uid://d1usq1ie2yyt5" path="res://scenes/npc/npc_old_man.tscn" id="9_r72dd"]
-[ext_resource type="PackedScene" uid="uid://teuylk8o7voa" path="res://scenes/npc/npc_alien_parasite.tscn" id="10_r72dd"]
-[ext_resource type="PackedScene" uid="uid://t00cxrn8ks8n" path="res://scenes/objects/items/item_statue.tscn" id="11_ijn0p"]
-[ext_resource type="PackedScene" uid="uid://bl4mjmjqp8lg0" path="res://scenes/objects/items/item_container_ore.tscn" id="16_cwffn"]
-[ext_resource type="PackedScene" uid="uid://ddj4lt8h2m22u" path="res://scenes/objects/items/item_gun.tscn" id="17_e6lid"]
-[ext_resource type="PackedScene" uid="uid://c2twh2ppnm3a1" path="res://scenes/objects/items/item_puppet.tscn" id="18_3g50r"]
-[ext_resource type="PackedScene" uid="uid://ceoryfk0uuqdi" path="res://scenes/objects/items/item_dna.tscn" id="18_iu1m7"]
-[ext_resource type="PackedScene" uid="uid://c60l5dabpstxd" path="res://scenes/objects/items/item_mask.tscn" id="19_cywot"]
-[ext_resource type="PackedScene" uid="uid://dvj16iqp7mh3v" path="res://scenes/objects/items/item_instrument.tscn" id="20_cywot"]
-[ext_resource type="PackedScene" uid="uid://hb1ichketv4g" path="res://scenes/objects/items/item_alien_parts.tscn" id="21_svp4f"]
-[ext_resource type="PackedScene" uid="uid://dkfcuwl404eip" path="res://scenes/objects/items/item_map.tscn" id="22_1b0o8"]
-[ext_resource type="Script" uid="uid://dstoyxtbsjxqj" path="res://scripts/multiplayer/multiplayer_spawner.gd" id="23_1b0o8"]
+[ext_resource type="Script" uid="uid://b02rg7ocnulcl" path="res://scripts/misc/mini_map.gd" id="1_5ir68"]
+[ext_resource type="Script" uid="uid://dssdfyjkl3ltm" path="res://scripts/misc/hud_script.gd" id="2_n6j7t"]
+[ext_resource type="Script" uid="uid://ceppitbvw0vuk" path="res://scripts/misc/custom_renderer.gd" id="3_m5o5l"]
+[ext_resource type="Script" uid="uid://ci6bxl0r0pr1b" path="res://scripts/level/map_overlay.gd" id="4_n20ya"]
+[ext_resource type="Material" uid="uid://qspubcspupbr" path="res://materials/cyan_floor.tres" id="5_m3333"]
+[ext_resource type="Material" uid="uid://dbo0bbv251g4c" path="res://materials/cyan_wall.tres" id="6_33jrj"]
+[ext_resource type="Script" uid="uid://7b04wiw2pemt" path="res://scripts/level/geometry.gd" id="7_drqco"]
+[ext_resource type="Script" uid="uid://d4kls08621kma" path="res://scripts/misc/music_player.gd" id="8_5cvud"]
+[ext_resource type="AudioStream" uid="uid://bapqy3sueastp" path="res://sounds/music/into_space.ogg" id="9_yv66f"]
+[ext_resource type="PackedScene" uid="uid://d1usq1ie2yyt5" path="res://scenes/npc/npc_old_man.tscn" id="10_nt5or"]
+[ext_resource type="PackedScene" uid="uid://teuylk8o7voa" path="res://scenes/npc/npc_alien_parasite.tscn" id="11_fe2i8"]
+[ext_resource type="PackedScene" uid="uid://betl7osspfjrq" path="res://scenes/npc/npc_kasperl.tscn" id="12_7nv34"]
+[ext_resource type="PackedScene" uid="uid://t00cxrn8ks8n" path="res://scenes/objects/items/item_statue.tscn" id="13_lnvnf"]
+[ext_resource type="PackedScene" uid="uid://bl4mjmjqp8lg0" path="res://scenes/objects/items/item_container_ore.tscn" id="14_yek3c"]
+[ext_resource type="PackedScene" uid="uid://ddj4lt8h2m22u" path="res://scenes/objects/items/item_gun.tscn" id="15_8pus5"]
+[ext_resource type="PackedScene" uid="uid://c2twh2ppnm3a1" path="res://scenes/objects/items/item_puppet.tscn" id="16_udkhg"]
+[ext_resource type="PackedScene" uid="uid://ceoryfk0uuqdi" path="res://scenes/objects/items/item_dna.tscn" id="17_6mb1s"]
+[ext_resource type="PackedScene" uid="uid://c60l5dabpstxd" path="res://scenes/objects/items/item_mask.tscn" id="18_fb3b8"]
+[ext_resource type="PackedScene" uid="uid://dvj16iqp7mh3v" path="res://scenes/objects/items/item_instrument.tscn" id="19_g46ix"]
+[ext_resource type="PackedScene" uid="uid://hb1ichketv4g" path="res://scenes/objects/items/item_alien_parts.tscn" id="20_5fjw4"]
+[ext_resource type="PackedScene" uid="uid://dkfcuwl404eip" path="res://scenes/objects/items/item_map.tscn" id="21_64xie"]
+[ext_resource type="Script" uid="uid://dstoyxtbsjxqj" path="res://scripts/multiplayer/multiplayer_spawner.gd" id="22_p15nj"]
+[ext_resource type="PackedScene" uid="uid://dwngmervcgx23" path="res://scenes/player/player.tscn" id="23_xtwef"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jt1vd"]
 
@@ -48,20 +48,20 @@ environment = SubResource("Environment_dvup1")
 
 [node name="MiniMap" type="CanvasLayer" parent="."]
 process_mode = 3
-script = ExtResource("1_jmes4")
+script = ExtResource("1_5ir68")
 player_color = Color(4.81307e-07, 0.467412, 1.15514e-06, 1)
 enemy_color = Color(0.842635, 3.56168e-06, 4.81307e-07, 1)
 
 [node name="Label" type="Label" parent="MiniMap"]
 offset_right = 40.0
 offset_bottom = 23.0
-script = ExtResource("2_kfebt")
+script = ExtResource("2_n6j7t")
 
 [node name="SubViewport" type="SubViewport" parent="MiniMap"]
 render_target_update_mode = 4
 
 [node name="CustomRenderer" type="Node2D" parent="MiniMap/SubViewport"]
-script = ExtResource("3_tyxjt")
+script = ExtResource("3_m5o5l")
 
 [node name="Camera3D" type="Camera3D" parent="MiniMap/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
@@ -72,7 +72,7 @@ size = 32.0
 offset_right = 40.0
 offset_bottom = 40.0
 stretch_mode = 4
-script = ExtResource("4_gi8m4")
+script = ExtResource("4_n20ya")
 
 [node name="TextureRect" type="TextureRect" parent="MiniMap"]
 anchors_preset = 1
@@ -94,7 +94,7 @@ shape = SubResource("BoxShape3D_3imfn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D"]
 transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 40, 0, 0, 0)
 mesh = SubResource("BoxMesh_iafiv")
-surface_material_override/0 = ExtResource("3_r72dd")
+surface_material_override/0 = ExtResource("5_m3333")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9747, 0.441925, -0.388389)
@@ -106,7 +106,7 @@ shape = SubResource("BoxShape3D_3imfn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D3"]
 transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 5, 0.4, 0)
 mesh = SubResource("BoxMesh_iafiv")
-surface_material_override/0 = ExtResource("4_ijn0p")
+surface_material_override/0 = ExtResource("6_33jrj")
 
 [node name="StaticBody3D8" type="StaticBody3D" parent="Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23965, 3.00516, -0.388389)
@@ -118,7 +118,7 @@ shape = SubResource("BoxShape3D_3imfn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D8"]
 transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 5, 0.4, 0)
 mesh = SubResource("BoxMesh_iafiv")
-surface_material_override/0 = ExtResource("4_ijn0p")
+surface_material_override/0 = ExtResource("6_33jrj")
 
 [node name="StaticBody3D9" type="StaticBody3D" parent="Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23965, 3.00516, 3.92837)
@@ -130,7 +130,7 @@ shape = SubResource("BoxShape3D_3imfn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D9"]
 transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 5, 0.4, 0)
 mesh = SubResource("BoxMesh_iafiv")
-surface_material_override/0 = ExtResource("4_ijn0p")
+surface_material_override/0 = ExtResource("6_33jrj")
 
 [node name="StaticBody3D10" type="StaticBody3D" parent="Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1838, 3.00516, 11.4226)
@@ -142,10 +142,10 @@ shape = SubResource("BoxShape3D_3imfn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D10"]
 transform = Transform3D(8, 0, 0, 0, 0.4, 0, 0, 0, 8, 5, 0.4, 0)
 mesh = SubResource("BoxMesh_iafiv")
-surface_material_override/0 = ExtResource("4_ijn0p")
+surface_material_override/0 = ExtResource("6_33jrj")
 
 [node name="Walls" type="Node3D" parent="Geometry"]
-script = ExtResource("4_07lms")
+script = ExtResource("7_drqco")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Geometry/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.70332, -1.77645, -0.384726)
@@ -157,7 +157,7 @@ shape = SubResource("BoxShape3D_3imfn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/Walls/StaticBody3D2"]
 transform = Transform3D(2, 0, 0, 0, 3.5, 0, 0, 0, 2, 0, 2, 0)
 mesh = SubResource("BoxMesh_iafiv")
-surface_material_override/0 = ExtResource("4_ijn0p")
+surface_material_override/0 = ExtResource("6_33jrj")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="Geometry/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89699, 20.747)
@@ -169,7 +169,7 @@ shape = SubResource("BoxShape3D_3imfn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/Walls/StaticBody3D4"]
 transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
 mesh = SubResource("BoxMesh_iafiv")
-surface_material_override/0 = ExtResource("4_ijn0p")
+surface_material_override/0 = ExtResource("6_33jrj")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="Geometry/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89699, -20.9285)
@@ -181,7 +181,7 @@ shape = SubResource("BoxShape3D_3imfn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/Walls/StaticBody3D5"]
 transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
 mesh = SubResource("BoxMesh_iafiv")
-surface_material_override/0 = ExtResource("4_ijn0p")
+surface_material_override/0 = ExtResource("6_33jrj")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="Geometry/Walls"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.0089, 1.89699, -0.0137901)
@@ -193,7 +193,7 @@ shape = SubResource("BoxShape3D_3imfn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/Walls/StaticBody3D6"]
 transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
 mesh = SubResource("BoxMesh_iafiv")
-surface_material_override/0 = ExtResource("4_ijn0p")
+surface_material_override/0 = ExtResource("6_33jrj")
 
 [node name="StaticBody3D7" type="StaticBody3D" parent="Geometry/Walls"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.938, 1.89699, -0.0137901)
@@ -205,64 +205,64 @@ shape = SubResource("BoxShape3D_3imfn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/Walls/StaticBody3D7"]
 transform = Transform3D(40, 0, 0, 0, 8, 0, 0, 0, 2, 0, 2, 0)
 mesh = SubResource("BoxMesh_iafiv")
-surface_material_override/0 = ExtResource("4_ijn0p")
+surface_material_override/0 = ExtResource("6_33jrj")
 
 [node name="MusicPlayer" type="Node3D" parent="."]
-script = ExtResource("6_tyxjt")
-audio_stream = ExtResource("8_07lms")
+script = ExtResource("8_5cvud")
+audio_stream = ExtResource("9_yv66f")
 volume_db = -12.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicPlayer"]
 
 [node name="NPCs" type="Node3D" parent="."]
-script = ExtResource("4_07lms")
+script = ExtResource("7_drqco")
 
-[node name="npc_alien" parent="NPCs" instance=ExtResource("9_r72dd")]
+[node name="npc_alien" parent="NPCs" instance=ExtResource("10_nt5or")]
 transform = Transform3D(2.35, 0, 0, 0, 2.35, 0, 0, 0, 2.35, -7.92671, 4.87011, 11.9013)
 
-[node name="npc_alien_parasite" parent="NPCs" instance=ExtResource("10_r72dd")]
+[node name="npc_alien_parasite" parent="NPCs" instance=ExtResource("11_fe2i8")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.440997, 1.00819, 7.12658)
 
-[node name="npc_kasper" parent="NPCs" instance=ExtResource("9_kfebt")]
+[node name="npc_kasper" parent="NPCs" instance=ExtResource("12_7nv34")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.242267, 0.253977, 5.65284)
 
 [node name="Items" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00468016, 0.632467, 3.12994)
 
-[node name="Item1" parent="Items" instance=ExtResource("11_ijn0p")]
+[node name="Item1" parent="Items" instance=ExtResource("13_lnvnf")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.61591, 0.00111699, 3.60578)
 
-[node name="Item2" parent="Items" instance=ExtResource("11_ijn0p")]
+[node name="Item2" parent="Items" instance=ExtResource("13_lnvnf")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.61758, 0.00111699, 3.60578)
 
-[node name="Item3" parent="Items" instance=ExtResource("11_ijn0p")]
+[node name="Item3" parent="Items" instance=ExtResource("13_lnvnf")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.61758, 0.00111699, 1.34642)
 
-[node name="Item4" parent="Items" instance=ExtResource("16_cwffn")]
+[node name="Item4" parent="Items" instance=ExtResource("14_yek3c")]
 transform = Transform3D(-7.64949e-08, 0, -1.75, 0, 1.75, 0, 1.75, 0, -7.64949e-08, 10.7167, 0.343308, 1.8725)
 
-[node name="Item5" parent="Items" instance=ExtResource("17_e6lid")]
+[node name="Item5" parent="Items" instance=ExtResource("15_8pus5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.2794, 0.014338, 3.96512)
 
-[node name="Item6" parent="Items" instance=ExtResource("18_3g50r")]
+[node name="Item6" parent="Items" instance=ExtResource("16_udkhg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Item7" parent="Items" instance=ExtResource("18_iu1m7")]
+[node name="Item7" parent="Items" instance=ExtResource("17_6mb1s")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.0259, 0, 5.02794)
 
-[node name="Item8" parent="Items" instance=ExtResource("19_cywot")]
+[node name="Item8" parent="Items" instance=ExtResource("18_fb3b8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0196, 0.0711709, 3.78804)
 
-[node name="Item9" parent="Items" instance=ExtResource("20_cywot")]
+[node name="Item9" parent="Items" instance=ExtResource("19_g46ix")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.98544, -0.0207263, 0.64497)
 
-[node name="Item10" parent="Items" instance=ExtResource("21_svp4f")]
+[node name="Item10" parent="Items" instance=ExtResource("20_5fjw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.82194, -0.00131959, -1.39061)
 
-[node name="Item11" parent="Items" instance=ExtResource("22_1b0o8")]
+[node name="Item11" parent="Items" instance=ExtResource("21_64xie")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.39675, -0.012662, -1.3041)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 spawn_path = NodePath(".")
-script = ExtResource("23_1b0o8")
-playerScene = ExtResource("8_gi8m4")
+script = ExtResource("22_p15nj")
+playerScene = ExtResource("23_xtwef")

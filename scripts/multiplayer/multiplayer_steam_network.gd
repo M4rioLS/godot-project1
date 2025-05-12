@@ -26,7 +26,7 @@ func _on_host_pressed():
 	Steam.lobby_joined.connect(_on_lobby_joined.bind())
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC) #max members TODO
 	#multiplayer.multiplayer_peer = peer
-	ns.spawn("res://scenes/levels/level_01.tscn")
+	ns.spawn("res://scenes/levels/rooms/room_01.tscn") #main/level_01.tscn
 	hide_hud_elements()
 	
 func _on_refresh_pressed():
