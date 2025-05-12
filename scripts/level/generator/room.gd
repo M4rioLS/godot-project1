@@ -3,6 +3,7 @@ class_name Room3D
 
 @export var room_size := Vector3(10, 5, 10)  # X, Y, Z dimensions
 var grid_position := Vector3.ZERO
+var player = preload("res://scenes/player/player.tscn")
 @export var doors := {
 	"north": false,
 	"south": false,
@@ -28,6 +29,9 @@ func _ready():
 	debug_mesh.surface_add_vertex(Vector3.ZERO)
 	debug_mesh.surface_add_vertex(Vector3(0, 0, 2))
 	debug_mesh.surface_end()
+	
+	var instance = player.instantiate()
+	add_child(instance)
 
 func setup(pos: Vector3, connections: Array[String]):
 	grid_position = pos

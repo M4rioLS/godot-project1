@@ -26,7 +26,7 @@ func _on_host_pressed():
 	Steam.lobby_joined.connect(_on_lobby_joined.bind())
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC) #max members TODO
 	#multiplayer.multiplayer_peer = peer
-	ns.spawn("res://scenes/levels/rooms/room_01.tscn") #main/level_01.tscn
+	ns.spawn("res://scenes/levels/main/level_01.tscn") #main/level_01.tscn
 	hide_hud_elements()
 	
 func _on_refresh_pressed():
@@ -43,6 +43,7 @@ func hide_hud_elements():
 	$Host.hide()
 	$LobbyContainer/Lobbies.hide()
 	$Refresh.hide()
+	$Singleplayer.hide()
 
 func join_as_client(lobby_ID):
 	print("Joining lobby %s" % lobby_ID)
@@ -165,3 +166,8 @@ func _on_lobby_match_list(these_lobbies: Array) -> void:
 		lobby_button.connect("pressed", Callable(self, "join_as_client").bind(this_lobby))
 
 		lobby_list.add_child(lobby_button)
+
+
+func _on_singleplayer_pressed() -> void:
+	ns.spawn("res://scenes/levels/rooms/room_01.tscn") #("res://scenes/levels/main/level_01.tscn")
+	hide_hud_elements()

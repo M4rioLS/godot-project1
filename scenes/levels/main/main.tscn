@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://eqrajkxujmjk"]
 
-[ext_resource type="Script" uid="uid://btskhhm6obouu" path="res://scripts/multiplayer/multiplayer_steam_network.gd" id="1_a0jje"]
-[ext_resource type="Script" uid="uid://8xwu3lnpb6ud" path="res://scripts/multiplayer/steam.gd" id="2_0rsgj"]
+[ext_resource type="Script" uid="uid://btskhhm6obouu" path="res://scripts/Multiplayer/multiplayer_steam_network.gd" id="1_a0jje"]
+[ext_resource type="Script" uid="uid://8xwu3lnpb6ud" path="res://scripts/Multiplayer/steam.gd" id="2_0rsgj"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("_players_spawn_node")]
 script = ExtResource("1_a0jje")
@@ -21,6 +21,13 @@ offset_right = 220.0
 offset_bottom = 177.0
 text = "Refresh"
 
+[node name="Singleplayer" type="Button" parent="."]
+offset_left = 3.0
+offset_top = 181.0
+offset_right = 221.0
+offset_bottom = 262.0
+text = "Singleplayer"
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 spawn_path = NodePath("..")
 
@@ -37,3 +44,4 @@ layout_mode = 2
 
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Refresh" to="." method="_on_refresh_pressed"]
+[connection signal="pressed" from="Singleplayer" to="." method="_on_singleplayer_pressed"]

@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dvj16iqp7mh3v" path="res://scenes/objects/items/item_instrument.tscn" id="19_g46ix"]
 [ext_resource type="PackedScene" uid="uid://hb1ichketv4g" path="res://scenes/objects/items/item_alien_parts.tscn" id="20_5fjw4"]
 [ext_resource type="PackedScene" uid="uid://dkfcuwl404eip" path="res://scenes/objects/items/item_map.tscn" id="21_64xie"]
-[ext_resource type="Script" uid="uid://dstoyxtbsjxqj" path="res://scripts/multiplayer/multiplayer_spawner.gd" id="22_p15nj"]
+[ext_resource type="Script" uid="uid://dstoyxtbsjxqj" path="res://scripts/Multiplayer/multiplayer_spawner.gd" id="22_p15nj"]
 [ext_resource type="PackedScene" uid="uid://dwngmervcgx23" path="res://scenes/player/player.tscn" id="23_xtwef"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jt1vd"]
