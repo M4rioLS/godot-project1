@@ -5,9 +5,10 @@ extends CharacterBody3D
 @export var JUMP_VELOCITY : float = 5.0
 @export var SENSITIVITY : float = 0.003 # Mouse sensitivity
 @export var MAX_HEALTH : float = 100.0
-var HEALTH := MAX_HEALTH
+var HEALTH : float = MAX_HEALTH
 @export var MAX_STAMINA : float = 100.0
-var STAMINA := MAX_STAMINA
+var STAMINA : float = MAX_STAMINA
+var stamina_sprint_cost : float = 0.05
 var player_id: int = 0
 
 # Get gravity from project settings
@@ -126,6 +127,9 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	# Apply the calculated velocity
+	if velocity.x != 0:
+		STAMINA -= stamina_sprint_cost
+	
 	move_and_slide()
 	
 func getHealth():

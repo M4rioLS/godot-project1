@@ -24,10 +24,12 @@ func _process(_delta):
 		_find_player()
 	var player_health: float = 0
 	var carried_value: float = 0
+	var player_stamina: float = 0
 	var carried_object: RigidBody3D = null
 	if player_node != null:
 		player_health = player_node.HEALTH #player_node.get_health()
 		carried_object = player_node.carried_object
+		player_stamina = player_node.STAMINA
 		if carried_object:
 			carried_value = carried_object.money_value
 

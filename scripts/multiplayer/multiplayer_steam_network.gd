@@ -1,5 +1,6 @@
 extends Node2D
 
+var player = preload("res://scenes/player/player.tscn")
 var lobby_id = 0
 var peer = SteamMultiplayerPeer.new()
 var multiplayer_scene = preload("res://scenes/player/player.tscn")
@@ -171,3 +172,4 @@ func _on_lobby_match_list(these_lobbies: Array) -> void:
 func _on_singleplayer_pressed() -> void:
 	ns.spawn("res://scenes/levels/rooms/room_01.tscn") #("res://scenes/levels/main/level_01.tscn")
 	hide_hud_elements()
+	_add_player_to_game(1)

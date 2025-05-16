@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://eqrajkxujmjk"]
+[gd_scene load_steps=4 format=3 uid="uid://eqrajkxujmjk"]
 
 [ext_resource type="Script" uid="uid://btskhhm6obouu" path="res://scripts/Multiplayer/multiplayer_steam_network.gd" id="1_a0jje"]
 [ext_resource type="Script" uid="uid://8xwu3lnpb6ud" path="res://scripts/Multiplayer/steam.gd" id="2_0rsgj"]
+[ext_resource type="PackedScene" uid="uid://dkx5vakbwskm" path="res://scenes/GUI/HUD.tscn" id="3_0rsgj"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("_players_spawn_node")]
 script = ExtResource("1_a0jje")
@@ -41,6 +42,8 @@ offset_bottom = 451.0
 layout_mode = 2
 
 [node name="Players" type="Node3D" parent="."]
+
+[node name="Hud" parent="." instance=ExtResource("3_0rsgj")]
 
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Refresh" to="." method="_on_refresh_pressed"]
