@@ -8,8 +8,10 @@ extends CharacterBody3D
 var HEALTH : float = MAX_HEALTH
 @export var MAX_STAMINA : float = 100.0
 var STAMINA : float = MAX_STAMINA
-var stamina_sprint_cost : float = 0.05
+var stamina_sprint_cost : float = 0.2
 var player_id: int = 0
+var sprint_multiplier : float = 2.0
+var stamina_regen : float = .05
 
 # Get gravity from project settings
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -90,8 +92,8 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Handle Jump (using the default "ui_accept" action, usually Spacebar)
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and STAMINA > 0:
+	# Handle Jump
+	if Input.is_action_just_pressed("jump") and is_on_floor() and STAMINA > 0:
 		if carried_object:
 			if carried_object.weight < carryable_object_max_weight_jump:
 				_jump(15)
@@ -114,8 +116,10 @@ func _physics_process(delta):
 	# Z is forward/backward, X is left/right
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	var speed_multiplier = 1.0
+	if Input.is_action_pressed("sprint") and STAMINA > 0: 
+		speed_multiplier = sprint_multiplier
 	if carried_object:
-		speed_multiplier = clamp(1.0 - (carried_object.weight * 0.1), 0.5, 1.0)
+		speed_multiplier = clamp(speed_multiplier - (carried_object.weight * 0.1), 0.5, speed_multiplier)
 	
 	# Apply movement
 	if direction:
@@ -127,8 +131,14 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	# Apply the calculated velocity
-	if velocity.x != 0:
-		STAMINA -= stamina_sprint_cost
+	if velocity.x != 0 and Input.is_action_pressed("sprint"):
+		STAMINA = max(STAMINA - stamina_sprint_cost,0)
+		
+	if(not Input.is_action_pressed("sprint") and is_on_floor()):
+		if(velocity.x == 0):
+			STAMINA = min(STAMINA + stamina_regen, MAX_STAMINA)
+		else:
+			STAMINA = min(STAMINA + .5 * stamina_regen, MAX_STAMINA)
 	
 	move_and_slide()
 	
@@ -146,6 +156,7 @@ func _on_pickup_area_body_entered(body: Node3D) -> void:
 func _on_pickup_area_body_exited(body: Node3D) -> void:
 	if body is CarryableObject3D and nearby_objects.has(body):
 		nearby_objects.erase(body)
+
 func _jump(cost : float):
 	velocity.y = JUMP_VELOCITY
 	STAMINA = max(STAMINA - cost, 0)

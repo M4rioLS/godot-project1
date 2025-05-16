@@ -39,4 +39,4 @@ func _process(_delta):
 
 	# Update the label text
 	#
-	text = str("HP: " + str(player_health) + "   VAL: " + str(round(carried_value)) + "   FPS: " + str(round(fps)))
+	text = str("HP: " + str(player_health) + "   STA: " + str(round(player_stamina)) + "   VAL: " + str(round(carried_value)) + "   FPS: " + str(round(fps)))
