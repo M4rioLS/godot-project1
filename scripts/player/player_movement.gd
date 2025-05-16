@@ -12,6 +12,7 @@ var stamina_sprint_cost : float = 0.2
 var player_id: int = 0
 var sprint_multiplier : float = 2.0
 var stamina_regen : float = .05
+var stamina_jump_cost : float = 10.0
 
 # Get gravity from project settings
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -93,12 +94,12 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle Jump
-	if Input.is_action_just_pressed("jump") and is_on_floor() and STAMINA > 0:
+	if Input.is_action_just_pressed("jump") and is_on_floor() and STAMINA >= stamina_jump_cost:
 		if carried_object:
 			if carried_object.weight < carryable_object_max_weight_jump:
-				_jump(15)
+				_jump(stamina_jump_cost) # higher jump cost when carrying object?
 		else:
-			_jump(10)
+			_jump(stamina_jump_cost)
 		
 	if carried_object:
 		# Smoothly follow carry position while respecting physics
