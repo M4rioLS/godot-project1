@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dp64k1rb6pcg7"]
+
+[ext_resource type="Texture2D" uid="uid://d0dt1xyycvcup" path="res://textures/transparent_blue.png" id="1_4t7vd"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_4t7vd")
+uv1_scale = Vector3(2.98, 2.98, 2.98)
+texture_filter = 2
