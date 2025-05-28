@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwngmervcgx23"]
+[gd_scene load_steps=10 format=3 uid="uid://d3py000tfcj8s"]
 
-[ext_resource type="Script" uid="uid://byf3la1lyhg0b" path="res://scripts/player/player_movement.gd" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://csamjsfn662ob" path="res://scripts/player/player_camera.gd" id="3_gmlin"]
-[ext_resource type="Material" uid="uid://dp64k1rb6pcg7" path="res://materials/visor.tres" id="3_lvxji"]
+[ext_resource type="Script" uid="uid://dukglqtq3q731" path="res://scripts/Multiplayer/multiplayer_controller.gd" id="1_djxj5"]
+[ext_resource type="Script" uid="uid://csamjsfn662ob" path="res://scripts/player/player_camera.gd" id="2_t4far"]
+[ext_resource type="Material" uid="uid://dp64k1rb6pcg7" path="res://materials/visor.tres" id="3_tmlwg"]
+[ext_resource type="Script" uid="uid://c25ck0hnurlei" path="res://scripts/Multiplayer/multiplayer_input.gd" id="4_t4far"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gmlin"]
 
@@ -12,9 +13,17 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dovo2"]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gmlin"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27719, 0)
-script = ExtResource("1_4flbx")
+script = ExtResource("1_djxj5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.17, 0, 0, 0, 1, 0, 0.148529, 0)
@@ -30,12 +39,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.850034, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 current = true
-script = ExtResource("3_gmlin")
+script = ExtResource("2_t4far")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head"]
 transform = Transform3D(0.605, 0, 0, 0, -2.64454e-08, 0.605, 0, -0.605, -2.64454e-08, 0, -1.03348, -0.403212)
 mesh = SubResource("PrismMesh_p47bc")
-surface_material_override/0 = ExtResource("3_lvxji")
+surface_material_override/0 = ExtResource("3_tmlwg")
 
 [node name="PickupArea" type="Area3D" parent="."]
 
@@ -45,3 +54,11 @@ shape = SubResource("SphereShape3D_dovo2")
 
 [node name="CarryPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="InputSynchronizer" type="MultiplayerSynchronizer" parent="."]
+unique_name_in_owner = true
+replication_config = SubResource("SceneReplicationConfig_gmlin")
+script = ExtResource("4_t4far")
+
+[node name="PlayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_gmlin")
