@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwngmervcgx23"]
+[gd_scene load_steps=10 format=3 uid="uid://dwngmervcgx23"]
 
 [ext_resource type="Script" uid="uid://byf3la1lyhg0b" path="res://scripts/player/player_movement.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://csamjsfn662ob" path="res://scripts/player/player_camera.gd" id="3_gmlin"]
@@ -12,6 +12,14 @@
 [sub_resource type="PrismMesh" id="PrismMesh_p47bc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dovo2"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lvxji"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27719, 0)
@@ -48,3 +56,6 @@ shape = SubResource("SphereShape3D_dovo2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="Hud" parent="." instance=ExtResource("4_lvxji")]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_lvxji")

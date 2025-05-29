@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://d3py000tfcj8s"]
 
-[ext_resource type="Script" uid="uid://dukglqtq3q731" path="res://scripts/multiplayer/multiplayer_controller.gd" id="1_djxj5"]
+[ext_resource type="Script" uid="uid://dukglqtq3q731" path="res://scripts/Multiplayer/multiplayer_controller.gd" id="1_djxj5"]
 [ext_resource type="Material" uid="uid://dp64k1rb6pcg7" path="res://materials/visor.tres" id="3_tmlwg"]
-[ext_resource type="Script" uid="uid://c25ck0hnurlei" path="res://scripts/multiplayer/multiplayer_input.gd" id="4_t4far"]
+[ext_resource type="Script" uid="uid://c25ck0hnurlei" path="res://scripts/Multiplayer/multiplayer_input.gd" id="4_t4far"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gmlin"]
 

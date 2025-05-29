@@ -29,10 +29,12 @@ var username = ""
 @onready var head = $Head
 @onready var camera = $Head/Camera3D # Path relative to CharacterBody3D
 
+func _enter_tree():
+	set_multiplayer_authority(name.to_int())
+
 func _ready():
 	#add_to_group("player")
-	if !is_multiplayer_authority():
-		camera.current = false
+	camera.current = is_multiplayer_authority()
 	# Hide and capture the mouse cursor when the game starts
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pickup_area.body_entered.connect(_on_pickup_area_body_entered)
