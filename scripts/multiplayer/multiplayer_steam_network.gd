@@ -3,7 +3,7 @@ extends Node2D
 var player = preload("res://scenes/player/player.tscn")
 var lobby_id = 0
 var peer = SteamMultiplayerPeer.new()
-var multiplayer_scene = preload("res://scenes/player/player.tscn")
+var multiplayer_scene = preload("res://scenes/player/multiplayer_controller.tscn")
 @export var _players_spawn_node: Node3D
 @onready var lobby_list = $LobbyContainer/Lobbies
 
@@ -117,7 +117,11 @@ func _on_steam_join(lobby_ID:int):
 func _add_player_to_game(id: int):
 	print("Player %s joined the game!" % id)
 	
-	var player_to_add = multiplayer_scene.instantiate()
+	var player_to_add 
+	if id == 1:
+		player_to_add = player.instantiate()
+	else:
+		player_to_add = multiplayer_scene.instantiate()
 	player_to_add.player_id = id
 	player_to_add.name = str(id)
 	
