@@ -3,7 +3,6 @@ extends Node2D
 var player = preload("res://scenes/player/player.tscn")
 var lobby_id = 0
 var peer = SteamMultiplayerPeer.new()
-var multiplayer_scene = preload("res://scenes/player/multiplayer_controller.tscn")
 @export var _players_spawn_node: Node3D
 @onready var lobby_list = $LobbyContainer/Lobbies
 
