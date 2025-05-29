@@ -104,7 +104,6 @@ func connect_socket(steam_id: int):
 	if error == OK:
 		print("Connecting peer to host...")
 		multiplayer.set_multiplayer_peer(peer)
-		_add_player_to_game(2) #TEST
 	else:
 		print("Error creating client: %s" % str(error))
 
