@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwngmervcgx23"]
+[gd_scene load_steps=10 format=3 uid="uid://dwngmervcgx23"]
 
 [ext_resource type="Script" uid="uid://byf3la1lyhg0b" path="res://scripts/player/player_movement.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://csamjsfn662ob" path="res://scripts/player/player_camera.gd" id="3_gmlin"]
 [ext_resource type="Material" uid="uid://dp64k1rb6pcg7" path="res://materials/visor.tres" id="3_lvxji"]
+[ext_resource type="PackedScene" uid="uid://dkx5vakbwskm" path="res://scenes/GUI/HUD.tscn" id="4_lvxji"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gmlin"]
 
@@ -12,7 +13,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dovo2"]
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gmlin"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lvxji"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
@@ -54,6 +55,7 @@ shape = SubResource("SphereShape3D_dovo2")
 [node name="CarryPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
+[node name="Hud" parent="." instance=ExtResource("4_lvxji")]
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-root_path = NodePath("")
-replication_config = SubResource("SceneReplicationConfig_gmlin")
+replication_config = SubResource("SceneReplicationConfig_lvxji")

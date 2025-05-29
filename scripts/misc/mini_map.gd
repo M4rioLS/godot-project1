@@ -44,20 +44,12 @@ func _ready():
 	camera.environment.background_color = Color.DIM_GRAY
 	
 	# Find relevant nodes
-	player = _find_player()
+	player = parent_node
 	walls = get_tree().get_first_node_in_group("walls")
 	#camera.zoom = Vector2(zoom, zoom)
 	
-func _find_player():
-	var children = parent_node.get_children()
-	for child in children:
-			if child is CharacterBody3D:
-				player = child # This is the next CharacterBody3D
-				return
 				
 func _process(delta: float):
-	if player == null:
-		_find_player()
 	if is_instance_valid(player):
 		# Follow player position while maintaining height
 		camera.position = Vector3(

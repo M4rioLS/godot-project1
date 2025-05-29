@@ -5,13 +5,7 @@
 [ext_resource type="Script" uid="uid://ci6bxl0r0pr1b" path="res://scripts/level/map_overlay.gd" id="3_0uwpx"]
 [ext_resource type="Script" uid="uid://dssdfyjkl3ltm" path="res://scripts/misc/hud_script.gd" id="4_jxqsu"]
 
-[node name="Hud" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Hud" type="Node2D"]
 
 [node name="MiniMap" type="CanvasLayer" parent="."]
 process_mode = 3

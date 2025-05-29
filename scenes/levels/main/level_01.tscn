@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cof0684thlpyg"]
+[gd_scene load_steps=23 format=3 uid="uid://cof0684thlpyg"]
 
 [ext_resource type="Material" uid="uid://qspubcspupbr" path="res://materials/cyan_floor.tres" id="5_m3333"]
 [ext_resource type="Material" uid="uid://dbo0bbv251g4c" path="res://materials/cyan_wall.tres" id="6_33jrj"]
@@ -17,8 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://dvj16iqp7mh3v" path="res://scenes/objects/items/item_instrument.tscn" id="19_g46ix"]
 [ext_resource type="PackedScene" uid="uid://hb1ichketv4g" path="res://scenes/objects/items/item_alien_parts.tscn" id="20_5fjw4"]
 [ext_resource type="PackedScene" uid="uid://dkfcuwl404eip" path="res://scenes/objects/items/item_map.tscn" id="21_64xie"]
-[ext_resource type="Script" uid="uid://dstoyxtbsjxqj" path="res://scripts/multiplayer/multiplayer_spawner.gd" id="22_p15nj"]
-[ext_resource type="PackedScene" uid="uid://dwngmervcgx23" path="res://scenes/player/player.tscn" id="23_xtwef"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jt1vd"]
 
@@ -43,6 +41,7 @@ light_energy = 1.375
 environment = SubResource("Environment_dvup1")
 
 [node name="Geometry" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.57073, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.133073, 0)
@@ -221,8 +220,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.82194, -0.00131959, -1.3906
 
 [node name="Item11" parent="Items" instance=ExtResource("21_64xie")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.39675, -0.012662, -1.3041)
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-spawn_path = NodePath(".")
-script = ExtResource("22_p15nj")
-playerScene = ExtResource("23_xtwef")
