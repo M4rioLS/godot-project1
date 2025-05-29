@@ -39,8 +39,6 @@ func _ready():
 	pickup_area.body_exited.connect(_on_pickup_area_body_exited)
 
 func _unhandled_input(event):
-	if !is_multiplayer_authority():
-		return
 	# Handle mouse look
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		# Rotate the CharacterBody3D left/right (Y-axis)

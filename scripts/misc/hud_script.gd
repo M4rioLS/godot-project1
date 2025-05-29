@@ -6,8 +6,7 @@ extends Label
 @onready var player_node: CharacterBody3D = null # Variable to hold a reference to your player node
 
 func _ready():
-	parent_node = get_node("../../../Players/") 
-	_find_player()
+	player_node = $"../../.."
 	if player_node == null:
 		print("HUD Scripts Error: Could not find the player node at the specified path.")
 		set_text("Error: Player not found!")

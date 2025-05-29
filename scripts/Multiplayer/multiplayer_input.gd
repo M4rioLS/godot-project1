@@ -14,7 +14,7 @@ func _ready():
 
 	input_direction = Input.get_axis("move_left", "move_right")
 
-	username = SteamManager.steam_username
+	#username = SteamManager.steam_username
 
 func _physics_process(delta):
 	input_direction = Input.get_axis("move_left", "move_right")
