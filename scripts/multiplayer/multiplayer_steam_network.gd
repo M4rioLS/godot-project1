@@ -104,6 +104,7 @@ func connect_socket(steam_id: int):
 	if error == OK:
 		print("Connecting peer to host...")
 		multiplayer.set_multiplayer_peer(peer)
+		_add_player_to_game(2) #TEST
 	else:
 		print("Error creating client: %s" % str(error))
 
@@ -116,15 +117,20 @@ func _on_steam_join(lobby_ID:int):
 	
 func _add_player_to_game(id: int):
 	print("Player %s joined the game!" % id)
-	
+
 	var player_to_add 
-	if id == 1:
+	if id == 1 and multiplayer.is_server():
+		print("ERSTES")
+		player_to_add = player.instantiate()
+	elif id != 1 and not multiplayer.is_server():
+		print("ZWEITES")
 		player_to_add = player.instantiate()
 	else:
+		print("DRITTES")
 		player_to_add = multiplayer_scene.instantiate()
 	player_to_add.player_id = id
 	player_to_add.name = str(id)
-	
+
 	_players_spawn_node.add_child(player_to_add, true)
 	
 func _del_player(id: int):

@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3py000tfcj8s"]
+[gd_scene load_steps=9 format=3 uid="uid://d3py000tfcj8s"]
 
-[ext_resource type="Script" uid="uid://dukglqtq3q731" path="res://scripts/Multiplayer/multiplayer_controller.gd" id="1_djxj5"]
-[ext_resource type="Script" uid="uid://csamjsfn662ob" path="res://scripts/player/player_camera.gd" id="2_t4far"]
+[ext_resource type="Script" uid="uid://dukglqtq3q731" path="res://scripts/multiplayer/multiplayer_controller.gd" id="1_djxj5"]
 [ext_resource type="Material" uid="uid://dp64k1rb6pcg7" path="res://materials/visor.tres" id="3_tmlwg"]
-[ext_resource type="Script" uid="uid://c25ck0hnurlei" path="res://scripts/Multiplayer/multiplayer_input.gd" id="4_t4far"]
+[ext_resource type="Script" uid="uid://c25ck0hnurlei" path="res://scripts/multiplayer/multiplayer_input.gd" id="4_t4far"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gmlin"]
 
@@ -36,10 +35,6 @@ shape = SubResource("CylinderShape3D_g2els")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.850034, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Head"]
-current = true
-script = ExtResource("2_t4far")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head"]
 transform = Transform3D(0.605, 0, 0, 0, -2.64454e-08, 0.605, 0, -0.605, -2.64454e-08, 0, -1.03348, -0.403212)

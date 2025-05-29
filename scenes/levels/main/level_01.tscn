@@ -41,6 +41,7 @@ light_energy = 1.375
 environment = SubResource("Environment_dvup1")
 
 [node name="Geometry" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.57073, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.133073, 0)
