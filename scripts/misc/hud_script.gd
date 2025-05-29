@@ -11,16 +11,10 @@ func _ready():
 		print("HUD Scripts Error: Could not find the player node at the specified path.")
 		set_text("Error: Player not found!")
 		#set_process(false) # Stop updating if player not found
-func _find_player():
-	var children = parent_node.get_children()
-	for child in children:
-			if child is CharacterBody3D:
-				player_node = child # This is the next CharacterBody3D
-				return
-				
+
 func _process(_delta):
-	if player_node == null:
-		_find_player()
+	if player_node == null or !player_node.is_multiplayer_authority():
+		return
 	var player_health: float = 0
 	var carried_value: float = 0
 	var player_stamina: float = 0
