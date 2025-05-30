@@ -37,7 +37,7 @@ func _apply_gyro_stabilization(delta: float) -> void:
 
 func pick_up(player_node: Node3D) -> void:
 	if not is_carried:
-		original_parent = get_parent()  # Store original parent
+		#original_parent = get_parent()  # Store original parent
 		player = player_node
 		is_carried = true
 		freeze = true
@@ -49,8 +49,8 @@ func pick_up(player_node: Node3D) -> void:
 		var prev_global_transform = global_transform
 		
 		# Reparent to carry position
-		original_parent.remove_child(self)
-		carry_pos.add_child(self)
+		#original_parent.remove_child(self)
+		#carry_pos.add_child(self)
 		
 		# Restore global position after reparenting
 		global_transform = prev_global_transform
@@ -66,9 +66,9 @@ func drop() -> void:
 		var drop_global_transform = global_transform
 		
 		# Rep# Reparent to original parent
-		var parent = get_parent()
-		parent.remove_child(self)
-		original_parent.add_child(self)
+		#var parent = get_parent()
+		#parent.remove_child(self)
+		#original_parent.add_child(self)
 		
 		# Restore global position and physics properties
 		global_transform = drop_global_transform
@@ -85,3 +85,5 @@ func _physics_process(delta: float) -> void:
 	# Add gyro effect (wiP) remove if not needed
 	if not is_carried:
 		_apply_gyro_stabilization(delta)
+	if is_carried and player != null:
+		position = player.carry_position.position
