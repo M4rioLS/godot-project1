@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b7t5myhvmvumj" path="res://models/creatures/puppet.glb" id="1_h2ew7"]
 
-[node name="npc_02" type="Node3D"]
+[node name="NPCPuppet" type="Node3D"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -0.320712, 0.0389442)
 
 [node name="Model" parent="." instance=ExtResource("1_h2ew7")]

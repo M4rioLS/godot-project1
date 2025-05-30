@@ -31,7 +31,7 @@ sky = SubResource("Sky_bri2l")
 
 [sub_resource type="BoxMesh" id="BoxMesh_iafiv"]
 
-[node name="GameWorld" type="Node3D"]
+[node name="Level01" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0667261, 0.932679, -0.354483, -0.885302, 0.219206, 0.410108, 0.460204, 0.28646, 0.840329, 0, 1.28599, 2.38476)
@@ -204,7 +204,6 @@ transform = Transform3D(-7.64949e-08, 0, -1.75, 0, 1.75, 0, 1.75, 0, -7.64949e-0
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.2794, 0.014338, 3.96512)
 
 [node name="Item6" parent="Items" instance=ExtResource("16_udkhg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Item7" parent="Items" instance=ExtResource("17_6mb1s")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.0259, 0, 5.02794)

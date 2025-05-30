@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dhmb1mr208rm1" path="res://models/creatures/alien-parasite.glb" id="1_22fk6"]
 
-[node name="Node3D" type="Node3D"]
+[node name="NPCAlienParasite" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.440997, 1.03014, 0.756454)
 
 [node name="Model" parent="." instance=ExtResource("1_22fk6")]

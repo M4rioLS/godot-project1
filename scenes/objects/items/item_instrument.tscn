@@ -6,19 +6,16 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_bn8es"]
 size = Vector3(1, 0.993042, 1)
 
-[node name="Node3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532467, 0)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="ItemInstrument" type="RigidBody3D"]
 mass = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.35, 0)
 script = ExtResource("1_bn8es")
 money_value = 150
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.68, 0, 0, 0, 1.025, 0, 0, 0, 0.35, 0, 0.00153309, 0)
 shape = SubResource("BoxShape3D_bn8es")
 
-[node name="Model" parent="RigidBody3D" instance=ExtResource("2_bn8es")]
+[node name="Model" parent="." instance=ExtResource("2_bn8es")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.010513, 0.00540429, 0.00712433)

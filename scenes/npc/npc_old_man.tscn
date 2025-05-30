@@ -6,7 +6,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0sire"]
 
-[node name="npc_01" type="Node3D" groups=["npc"]]
+[node name="NPCOldMan" type="Node3D" groups=["npc"]]
 transform = Transform3D(2.35, 0, 0, 0, 2.35, 0, 0, 0, 2.35, 0, 1.22567, 0)
 script = ExtResource("1_0sire")
 

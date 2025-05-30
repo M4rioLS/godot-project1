@@ -25,7 +25,7 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fute2"]
 
-[node name="Room3D" type="Node3D"]
+[node name="Room01" type="Node3D"]
 script = ExtResource("1_fute2")
 room_size = Vector3(9.695, 5, 10)
 doors = {
@@ -231,7 +231,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0046
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.7773, 0.00111699, 10.4756)
 
 [node name="Item2" parent="Items" instance=ExtResource("13_02oi3")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.14465, 0.00111699, -2.50586)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.14465, -0.136659, -2.50586)
 
 [node name="Item3" parent="Items" instance=ExtResource("13_02oi3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.77563, 0.00111699, 8.21624)

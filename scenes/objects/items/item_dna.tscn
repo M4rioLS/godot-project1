@@ -3,21 +3,18 @@
 [ext_resource type="Script" uid="uid://dwhp1ev6uh4st" path="res://scripts/misc/carryable_object.gd" id="1_n86ng"]
 [ext_resource type="PackedScene" uid="uid://c78k52javg8hp" path="res://models/objects/items/alien_dna_sample.glb" id="2_n86ng"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_hk23g"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n86ng"]
 
-[node name="Node3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532467, 0)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="ItemDNA" type="RigidBody3D"]
 mass = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.35, 0)
 script = ExtResource("1_n86ng")
 money_value = 175
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, 0, 0, 0)
-shape = SubResource("CylinderShape3D_hk23g")
+shape = SubResource("CylinderShape3D_n86ng")
 
-[node name="Model" parent="RigidBody3D" instance=ExtResource("2_n86ng")]
+[node name="Model" parent="." instance=ExtResource("2_n86ng")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0115905, -0.0161899, 0.000737906)

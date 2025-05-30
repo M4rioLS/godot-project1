@@ -3,20 +3,17 @@
 [ext_resource type="Script" uid="uid://dwhp1ev6uh4st" path="res://scripts/misc/carryable_object.gd" id="1_05qto"]
 [ext_resource type="PackedScene" uid="uid://bvyrlp3axsebg" path="res://models/objects/items/galactic_map.glb" id="2_05qto"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vghth"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_05qto"]
 
-[node name="Node3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532467, 0)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="ItemMap" type="RigidBody3D"]
 mass = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.35, 0)
 script = ExtResource("1_05qto")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.15258e-08, 0, -1.05, 0, 0.245, 0, 0.95, 0, -4.5897e-08, 0.0180086, -0.383, 0.065)
-shape = SubResource("BoxShape3D_vghth")
+shape = SubResource("BoxShape3D_05qto")
 
-[node name="Model" parent="RigidBody3D" instance=ExtResource("2_05qto")]
+[node name="Model" parent="." instance=ExtResource("2_05qto")]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.0115206, -0.384187, 0.0584522)

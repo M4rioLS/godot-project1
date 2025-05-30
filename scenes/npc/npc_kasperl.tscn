@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bmofpxhls6vak" path="res://models/creatures/kasperl.glb" id="1_5rrj5"]
 
-[node name="Node3D" type="Node3D"]
+[node name="NPCKasperl" type="Node3D"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.242267, 0.275234, 0.36333)
 
 [node name="Model" parent="." instance=ExtResource("1_5rrj5")]

@@ -3,12 +3,9 @@
 [ext_resource type="Script" uid="uid://dwhp1ev6uh4st" path="res://scripts/misc/carryable_object.gd" id="1_k6bqx"]
 [ext_resource type="PackedScene" uid="uid://bu58pr54sn6dw" path="res://models/objects/items/alien_mask.glb" id="2_k6bqx"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_hk23g"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k6bqx"]
 
-[node name="Node3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532467, 0)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="ItemMask" type="RigidBody3D"]
 mass = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.35, 0)
@@ -16,9 +13,9 @@ script = ExtResource("1_k6bqx")
 weight = 3.0
 money_value = 250
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 0.5, 0, 0, 0, 0.8, 0, 0, 0)
-shape = SubResource("CylinderShape3D_hk23g")
+shape = SubResource("CylinderShape3D_k6bqx")
 
-[node name="Model" parent="RigidBody3D" instance=ExtResource("2_k6bqx")]
+[node name="Model" parent="." instance=ExtResource("2_k6bqx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0101998, -0.0260117, -0.00979331)

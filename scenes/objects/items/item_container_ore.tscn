@@ -3,12 +3,9 @@
 [ext_resource type="Script" uid="uid://dwhp1ev6uh4st" path="res://scripts/misc/carryable_object.gd" id="1_mxqmy"]
 [ext_resource type="PackedScene" uid="uid://cd4uvle40a550" path="res://models/objects/items/ore_container.glb" id="3_mxqmy"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fhomh"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_6050k"]
 
-[node name="Node3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504071, 0)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="ItemContainerOre" type="RigidBody3D"]
 mass = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.35, 0)
@@ -16,9 +13,9 @@ script = ExtResource("1_mxqmy")
 weight = 5.0
 money_value = 500
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-5.07052e-08, 0, -1.606, 0, 1.071, 0, 1.16, 0, -7.02005e-08, -0.0132552, 0.00679141, 0.00691748)
-shape = SubResource("BoxShape3D_fhomh")
+shape = SubResource("BoxShape3D_6050k")
 
-[node name="Model" parent="RigidBody3D" instance=ExtResource("3_mxqmy")]
+[node name="Model" parent="." instance=ExtResource("3_mxqmy")]
 transform = Transform3D(-6.60042e-08, 0, -1.51, 0, 1.51, 0, 1.51, 0, -6.60042e-08, -0.0136843, 0.0156361, 0.0124847)
