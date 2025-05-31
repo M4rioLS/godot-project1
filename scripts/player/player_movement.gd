@@ -76,7 +76,7 @@ func _input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed("interact"):
 		if carried_object:
-			carried_object.drop()
+			carried_object.rpc_id(1, "interact", multiplayer.get_unique_id())
 			carried_object = null
 		else:
 			# Find the closest object in range

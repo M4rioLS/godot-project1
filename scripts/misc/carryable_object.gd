@@ -10,7 +10,7 @@ class_name CarryableObject3D
 @onready var sync_timer = $SyncTimer
 
 var _target_up: Vector3 = Vector3.UP
-var is_carried: bool = false
+@export var is_carried: bool = false
 var player: Node3D = null
 var original_parent: Node  # Add this to track original parent
 
@@ -37,18 +37,9 @@ func sync_properties():
 	##if $MultiplayerSynchronizer.get_replication_config().property_get("rotation") != rotation:
 	##	rpc("update_rotation", rotation)
 
-# Remote position update
-@rpc("any_peer", "reliable")
-func update_position(new_pos: Vector3):
-	position = new_pos
-
-# Remote rotation update
-@rpc("any_peer", "reliable")
-func update_rotation(new_rot: Vector3):
-	rotation = new_rot
 
 # Called when item is picked up/interacted with
-@rpc("any_peer", "call_local")
+@rpc("any_peer", "call_remote")
 func interact(peer_id: int):
 	# Transfer authority to interacting peer
 	$MultiplayerSynchronizer.set_multiplayer_authority(peer_id)
@@ -59,6 +50,7 @@ func interact(peer_id: int):
 		pick_up(peer_id)
 	else:
 		drop()
+		$MultiplayerSynchronizer.set_multiplayer_authority(1)
 
 func _apply_gyro_stabilization(delta: float) -> void:
 	# Get current orientation vectors
