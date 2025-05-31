@@ -55,7 +55,10 @@ func interact(peer_id: int):
 	
 	# Your interaction logic here
 	print("Item interacted with by peer ", peer_id)
-	pick_up(peer_id)
+	if (!is_carried):
+		pick_up(peer_id)
+	else:
+		drop()
 
 func _apply_gyro_stabilization(delta: float) -> void:
 	# Get current orientation vectors
