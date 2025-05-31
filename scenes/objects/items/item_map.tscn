@@ -1,9 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkfcuwl404eip"]
+[gd_scene load_steps=5 format=3 uid="uid://dkfcuwl404eip"]
 
 [ext_resource type="Script" uid="uid://dwhp1ev6uh4st" path="res://scripts/misc/carryable_object.gd" id="1_05qto"]
 [ext_resource type="PackedScene" uid="uid://bvyrlp3axsebg" path="res://models/objects/items/galactic_map.glb" id="2_05qto"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_05qto"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_05qto"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
 [node name="ItemMap" type="RigidBody3D"]
 mass = 2.5
@@ -17,3 +25,8 @@ shape = SubResource("BoxShape3D_05qto")
 
 [node name="Model" parent="." instance=ExtResource("2_05qto")]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.0115206, -0.384187, 0.0584522)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_05qto")
+
+[node name="SyncTimer" type="Timer" parent="."]

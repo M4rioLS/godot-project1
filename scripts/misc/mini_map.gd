@@ -22,7 +22,7 @@ var items: Array
 var vec2: Vector2
 
 func _ready():
-	parent_node = get_node("../../Players/") 
+	parent_node = get_node("../../") 
 	# Configure viewport
 	viewport.size = Vector2i(250, 250)
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS

@@ -6,6 +6,8 @@ class_name CarryableObject3D
 @export var torque_strength: float = 5.0  # Adjust rotation force
 @export var damping: float = 0.8         # Rotation damping
 @export var max_angular_velocity: float = 2.0  # Prevent overspinin
+@export var sync_interval := 0.1  # Update frequency in seconds
+@onready var sync_timer = $SyncTimer
 
 var _target_up: Vector3 = Vector3.UP
 var is_carried: bool = false
@@ -14,6 +16,46 @@ var original_parent: Node  # Add this to track original parent
 
 func _ready():
 	add_to_group("items")
+	$MultiplayerSynchronizer.set_multiplayer_authority(name.to_int())
+	#$MultiplayerSynchronizer.replication_config = {
+	#"position": MultiplayerSynchronizer.CHAN,
+	#"rotation": MultiplayerSynchronizer.REPLICATION_MODE_ON_CHANGE,
+	# Add other properties as needed
+	#}
+
+	if multiplayer.is_server():
+		sync_timer.wait_time = sync_interval
+		sync_timer.timeout.connect(sync_properties)
+		sync_timer.start()
+		
+# Only called on server
+func sync_properties():
+	var test = 0
+	# Only sync if properties have changed
+	##if $MultiplayerSynchronizer.get_replication_config().property_get("position") != position:
+	##	rpc("update_position", position)
+	##if $MultiplayerSynchronizer.get_replication_config().property_get("rotation") != rotation:
+	##	rpc("update_rotation", rotation)
+
+# Remote position update
+@rpc("any_peer", "reliable")
+func update_position(new_pos: Vector3):
+	position = new_pos
+
+# Remote rotation update
+@rpc("any_peer", "reliable")
+func update_rotation(new_rot: Vector3):
+	rotation = new_rot
+
+# Called when item is picked up/interacted with
+@rpc("any_peer", "call_local")
+func interact(peer_id: int):
+	# Transfer authority to interacting peer
+	$MultiplayerSynchronizer.set_multiplayer_authority(peer_id)
+	
+	# Your interaction logic here
+	print("Item interacted with by peer ", peer_id)
+	pick_up(peer_id)
 
 func _apply_gyro_stabilization(delta: float) -> void:
 	# Get current orientation vectors
@@ -35,7 +77,8 @@ func _apply_gyro_stabilization(delta: float) -> void:
 	if angular_velocity.length() > max_angular_velocity:
 		angular_velocity = angular_velocity.normalized() * max_angular_velocity
 
-func pick_up(player_node: Node3D) -> void:
+func pick_up(peer_id: int) -> void:
+	var player_node = PlayerManager.get_player_by_id(peer_id)
 	if not is_carried:
 		original_parent = get_parent()  # Store original parent
 		player = player_node

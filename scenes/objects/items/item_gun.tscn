@@ -1,9 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddj4lt8h2m22u"]
+[gd_scene load_steps=5 format=3 uid="uid://ddj4lt8h2m22u"]
 
 [ext_resource type="Script" uid="uid://dwhp1ev6uh4st" path="res://scripts/misc/carryable_object.gd" id="1_xlhvd"]
 [ext_resource type="PackedScene" uid="uid://bghh55it6bivs" path="res://models/objects/items/alien_gun.glb" id="2_xlhvd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xlhvd"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xlhvd"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
 [node name="ItemGun" type="RigidBody3D"]
 mass = 2.5
@@ -17,3 +25,8 @@ shape = SubResource("BoxShape3D_xlhvd")
 
 [node name="Model" parent="." instance=ExtResource("2_xlhvd")]
 transform = Transform3D(1.24195e-15, 2.84124e-08, -0.65, 0.65, -2.84124e-08, 0, -2.84124e-08, -0.65, -2.84124e-08, 0.0460309, -0.403967, 0.085912)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_xlhvd")
+
+[node name="SyncTimer" type="Timer" parent="."]

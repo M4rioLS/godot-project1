@@ -31,10 +31,18 @@ var username = ""
 
 func _enter_tree():
 	set_multiplayer_authority(name.to_int())
+	
+func _exit_tree():
+	# Unregister when player leaves
+	PlayerManager.unregister_player(self)
 
 func _ready():
 	#add_to_group("player")
+	# Register player when spawned
+	PlayerManager.register_player(self)
 	camera.current = is_multiplayer_authority()
+	
+	#name = str(multiplayer.get_unique_id())  # need testing steam vs internal
 	# Hide and capture the mouse cursor when the game starts
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pickup_area.body_entered.connect(_on_pickup_area_body_entered)
@@ -84,7 +92,7 @@ func _input(event: InputEvent) -> void:
 			
 			if closest_obj:
 				carried_object = closest_obj
-				closest_obj.pick_up(self)
+				closest_obj.rpc_id(1, "interact", multiplayer.get_unique_id()) # need testing TODO
 				nearby_objects.erase(closest_obj)
 
 
